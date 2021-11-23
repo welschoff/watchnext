@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './LoginForm.module.css';
+import '../../globals.css';
 
 function LoginForm() {
   return (
-    <form className={styles.login}>
+    <form className={styles.form}>
       <input type="text" placeholder="username" />
       <input type="password" placeholder="password" />
-      <button type="submit">Login</button>
+      <input type="submit" value="Login" className={styles.login} />
     </form>
   );
 }

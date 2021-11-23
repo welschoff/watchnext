@@ -8,6 +8,10 @@ app.get('/api/hello', (_request, response) => {
   response.json({ message: 'Hello from server' });
 });
 
+app.get('/', (_request, response) => {
+  response.send('We are on home');
+});
+
 // Serve production bundle
 app.use(express.static('dist'));
 

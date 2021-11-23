@@ -8,10 +8,17 @@
 }
 
 :root {
-  --color-primary: #0e0e0e;
+  --color-background: #0e0e0e;
+  --color-primary: #ff6915;
   --color-secondary: #303030;
-  --color-text: #ff9a62;
-  --color-text2: #fefefe;
+  --color-text: #fefefe;
   --border-radius: 10px;
   --font-family: 'Ubuntu', sans-serif;
+}
+
+input {
+  border-radius: 15px;
+  /* stylelint-disable-next-line shorthand-property-no-redundant-values */
+  padding: 0.2rem 0.5rem;
+  border: none;
 }

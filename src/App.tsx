@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+require('./globals.css');
 
 function App() {
   const [message, setMessage] = useState('');

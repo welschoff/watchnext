@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  place-items: center;
+  background-color: var(--color-background);
+  height: 100vh;
+}
+
+.wrapper {
+  display: grid;
+  row-gap: 1rem;
+}
