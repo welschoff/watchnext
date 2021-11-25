@@ -11,24 +11,28 @@ function OverlayMenu() {
   return (
     <nav className={styles.nav}>
       <div className={styles.burger} onClick={handleClick}>
-        <div className={styles.lineOne}></div>
-        <div className={styles.lineTwo}></div>
-        <div className={styles.lineThree}></div>
+        <div className={navbarOpen ? styles.lineOne : ''}></div>
+        <div className={navbarOpen ? styles.lineTwo : ''}></div>
+        <div className={navbarOpen ? styles.lineThree : ''}></div>
       </div>
+
       <ul
         className={`${styles.nav_links} ${navbarOpen ? styles.nav_open : ''} `}
       >
         <li>
-          <a href="">Beliebt</a>
+          <img src="src/assets/star.svg" alt="" />
+          <a href="">Popular</a>
         </li>
         <li>
-          <a href="">Meine Serien</a>
+          <img src="src/assets/myseries.svg" alt="" />
+          <a href="">Watchlist</a>
         </li>
         <li>
-          <a href="">Freunde</a>
+          <img src="src/assets/friends.svg" alt="" />
+          <a href="">Friends</a>
         </li>
       </ul>
-      <div>
+      <div className={styles.search}>
         <svg
           width="25"
           height="26"

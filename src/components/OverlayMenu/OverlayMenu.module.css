@@ -16,7 +16,6 @@
 
 .nav {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   min-height: 8vh;
   background-color: var(--color-secondary);
@@ -26,6 +25,13 @@
 .burger {
   display: none;
   cursor: pointer;
+  left: 5%;
+  position: absolute;
+}
+
+.search {
+  position: absolute;
+  right: 5%;
 }
 
 .burger div {
@@ -33,6 +39,7 @@
   height: 3px;
   background-color: var(--color-primary);
   margin: 5px;
+  transition: all 0.3s ease;
 }
 
 @media screen and (max-width: 1000px) {
@@ -41,7 +48,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   body {
     overflow-x: hidden;
   }
@@ -67,4 +74,16 @@
 
 .nav_open {
   transform: translateX(0%);
+}
+
+.lineOne {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.lineTwo {
+  opacity: 0;
+}
+
+.lineThree {
+  transform: rotate(+45deg) translate(-6px, -6px);
 }
