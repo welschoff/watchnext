@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './LoginForm.module.css';
-import '../../globals.css';
 
 function LoginForm() {
   return (
