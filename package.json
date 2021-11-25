@@ -2,6 +2,7 @@
   "name": "vite-with-api",
   "version": "0.0.0",
   "scripts": {
+    "dev": "concurrently \"npm run dev-client\" \"npm run dev-server\" \"npm run storybook\"",
     "dev-client": "vite",
     "dev-server": "ts-node-dev --project server/tsconfig.json server/index.ts",
     "dev-storybook": "start-storybook -p 6006",
@@ -15,6 +16,7 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
+    "concurrently": "^6.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongodb": "^4.2.0",
