@@ -1,0 +1,10 @@
+.form {
+  display: grid;
+  row-gap: 0.5rem;
+  width: 50%;
+  color: var(--color-primary);
+}
+
+.login {
+  background-color: var(--color-primary);
+}
