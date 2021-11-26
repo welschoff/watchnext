@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-around;
   padding: 0;
+  z-index: 9000000000;
 }
 
 .nav_links a {
@@ -10,8 +11,20 @@
   letter-spacing: 3px;
 }
 
+a:hover {
+  color: var(--color-text);
+}
+
 .nav_links li {
   list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  justify-items: center;
+  transition: transform 0.3s;
+}
+
+.nav_links li:hover {
+  transform: scale(1.1);
 }
 
 .nav {
@@ -56,14 +69,14 @@
   .nav_links {
     position: absolute;
     left: 0;
-    height: 92vh;
+    height: 25vh;
     top: 8vh;
     background-color: var(--color-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 40%;
-    transform: translateX(-100%);
+    transform: translateY(-125%);
     transition: transform 0.5s ease-in;
   }
 
@@ -73,7 +86,7 @@
 }
 
 .nav_open {
-  transform: translateX(0%);
+  transform: translateY(0%);
 }
 
 .lineOne {
