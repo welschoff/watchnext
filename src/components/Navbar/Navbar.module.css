@@ -1,0 +1,15 @@
+.navbar {
+  display: grid;
+  background-color: var(--color-secondary);
+  width: 100%;
+  grid-template-columns: 10% 80% 10%;
+  position: relative;
+  place-items: center;
+  padding: 0.5rem;
+}
+
+.title {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  font-size: var(--font-size-header);
+}
