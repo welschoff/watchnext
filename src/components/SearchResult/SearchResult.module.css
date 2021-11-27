@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  grid-template-columns: 30% 1fr;
+  font-family: var(--font-family);
+  border-top: 1px solid rgb(184 184 184);
+}
+
+.container img {
+  height: 20vh;
+  width: 30vw;
+}
+
+.rating {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 24px;
+}
+
+.star {
+  transform: translateY(10%);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 1rem;
+}

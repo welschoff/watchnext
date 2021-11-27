@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   padding: 0;
-  z-index: 9000000000;
+  z-index: 1;
 }
 
 .nav_links a {
