@@ -4,6 +4,11 @@
   flex-flow: row-reverse;
 }
 
+.search input {
+  border-radius: 1rem 0 0 1rem;
+  border: none;
+}
+
 body {
   background-color: var(--color-background);
 }
