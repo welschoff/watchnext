@@ -3,10 +3,35 @@ import { connectDatabase } from './database';
 import { getUserCollection } from './database';
 import dotenv from 'dotenv';
 dotenv.config();
-import path from 'path';
+// import path from 'path';
+import fetch from 'node-fetch';
+import cors from 'cors';
 
 const port = process.env.PORT || 3001;
 const app = express();
+app.use(
+  cors({
+    origin: '*',
+  })
+);
+
+app.get('/api/popular', async (_req, res) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&page=1`
+  );
+  const data = await response.json();
+  console.log(data);
+  res.send(data);
+});
+
+app.get('/api/search/:name', async (req, res) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/search/tv?api_key=${process.env.API_KEY}&query=${req.params.name}`
+  );
+  const data = await response.json();
+  console.log(data);
+  res.send(data);
+});
 
 if (!process.env.MONGODB_URI) {
   throw new Error('No MongoDB URI dotenv variable');
@@ -50,9 +75,9 @@ app.get('/api/hello', (_request, response) => {
 app.use(express.static('dist'));
 
 // Handle client routing, return all requests to the app
-app.get('*', (_request, response) => {
-  response.sendFile(path.join(__dirname, '../dist/index.html'));
-});
+// app.get('*', (_request, response) => {
+//   response.sendFile(path.join(__dirname, '../dist/index.html'));
+// });
 
 connectDatabase(process.env.MONGODB_URI).then(() =>
   app.listen(port, () => {

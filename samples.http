@@ -10,3 +10,11 @@ Content-Type: application/json
     "username": "Hendrik",
     "password": "neuefische"
 }
+
+### GET popular series
+
+GET http://localhost:3001/api/popular HTTP/1.1
+
+### SEARCH series
+
+GET http://localhost:3001/api/search HTTP/1.1

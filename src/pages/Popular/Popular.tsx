@@ -8,9 +8,7 @@ function Popular() {
   const [results, setResults] = useState<GetPopularProps[] | null>([]);
 
   const getSeries = async () => {
-    const response = await fetch(
-      'https://api.themoviedb.org/3/tv/popular?api_key=79f8888252c85fbe294c7596aa7067d9&page'
-    );
+    const response = await fetch('http://localhost:3001/api/popular/');
     const data = await response.json();
     console.log(data);
     setResults(data.results);
