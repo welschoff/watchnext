@@ -16,9 +16,3 @@
   --font-family: 'Ubuntu', sans-serif;
   --font-size-header: 1.2em;
 }
-
-input {
-  border-radius: 1rem 0 0 1rem;
-  padding: 0.2rem 0.5rem;
-  border: none;
-}

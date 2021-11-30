@@ -19,7 +19,7 @@ function SearchResult({
           alt={`Cover of ${name}`}
         />
         <article className={styles.info}>
-          <h3>{name}</h3>
+          <p>{name}</p>
           <div className={styles.rating}>
             <svg
               className={styles.star}

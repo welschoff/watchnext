@@ -8,3 +8,9 @@
 .login {
   background-color: var(--color-primary);
 }
+
+.form input {
+  border-radius: 1rem;
+  border: none;
+  padding: 0.5rem;
+}
