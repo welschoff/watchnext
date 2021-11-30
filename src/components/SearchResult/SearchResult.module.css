@@ -9,13 +9,13 @@
 
 .container img {
   height: 20vh;
-  width: 30vw;
+  width: 100%;
 }
 
 .rating {
   display: flex;
   gap: 0.5rem;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .star {
@@ -27,4 +27,9 @@
   flex-direction: column;
   justify-content: space-around;
   padding-left: 1rem;
+  align-items: flex-start;
+}
+
+p {
+  font-size: 1.5rem;
 }

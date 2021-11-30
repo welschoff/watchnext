@@ -9,8 +9,6 @@ function Search(): JSX.Element {
   const [results, setResults] = useState<SearchResultProps[] | null>([]);
   const [query, setQuery] = useState<string | ''>('');
 
-  // https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${query}
-
   const getSeries = async () => {
     const response = await fetch(`http://localhost:3001/api/search/${query}`);
     const data = await response.json();

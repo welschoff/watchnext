@@ -17,4 +17,4 @@ GET http://localhost:3001/api/popular HTTP/1.1
 
 ### SEARCH series
 
-GET http://localhost:3001/api/search HTTP/1.1
+GET http://localhost:3001/api/search/:name HTTP/1.1
