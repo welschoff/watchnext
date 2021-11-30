@@ -15,15 +15,26 @@ app.use(
   })
 );
 
+// GET Details
+app.get('/api/details', async (_req, res) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/tv/1396?api_key=${process.env.API_KEY}&language=en-US`
+  );
+  const data = await response.json();
+  res.send(data);
+});
+
+// GET Popular Series
 app.get('/api/popular', async (_req, res) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&page=1`
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&page=`
   );
   const data = await response.json();
   console.log(data);
   res.send(data);
 });
 
+// SEARCH series
 app.get('/api/search/:name', async (req, res) => {
   const response = await fetch(
     `https://api.themoviedb.org/3/search/tv?api_key=${process.env.API_KEY}&query=${req.params.name}`
