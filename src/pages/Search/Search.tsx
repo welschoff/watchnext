@@ -21,7 +21,7 @@ function Search(): JSX.Element {
   }, [query]);
 
   return (
-    <div className={styles.container}>
+    <>
       <OverlayMenu />
       <form className={styles.search}>
         <input
@@ -34,16 +34,17 @@ function Search(): JSX.Element {
         />
       </form>
       <div>
-        {results?.map((result) => (
-          // eslint-disable-next-line react/jsx-key
-          <SearchResult
-            poster_path={result.poster_path}
-            name={result.name}
-            vote_average={result.vote_average}
-          />
-        ))}
+        {query &&
+          results?.map((result) => (
+            // eslint-disable-next-line react/jsx-key
+            <SearchResult
+              poster_path={result.poster_path}
+              name={result.name}
+              vote_average={result.vote_average}
+            />
+          ))}
       </div>
-    </div>
+    </>
   );
 }
 

@@ -12,3 +12,8 @@
 body {
   background-color: var(--color-background);
 }
+
+.result {
+  position: absolute;
+  z-index: -1;
+}
