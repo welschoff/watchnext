@@ -3,6 +3,7 @@ import GetPopular, {
   GetPopularProps,
 } from '../../components/GetPopular/GetPopular';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Popular() {
   const [results, setResults] = useState<GetPopularProps[] | null>([]);
@@ -24,11 +25,14 @@ function Popular() {
       <div>
         {results?.map((result) => (
           // eslint-disable-next-line react/jsx-key
-          <GetPopular
-            poster_path={result.poster_path}
-            name={result.name}
-            vote_average={result.vote_average}
-          />
+          <Link style={{ textDecoration: 'none' }} to={`/popular/${result.id}`}>
+            <GetPopular
+              poster_path={result.poster_path}
+              name={result.name}
+              vote_average={result.vote_average}
+              key={result.id}
+            />
+          </Link>
         ))}
       </div>
     </section>

@@ -16,9 +16,9 @@ app.use(
 );
 
 // GET Details
-app.get('/api/details', async (_req, res) => {
+app.get('/api/detail/:id', async (req, res) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/tv/1396?api_key=${process.env.API_KEY}&language=en-US`
+    `https://api.themoviedb.org/3/tv/${req.params.id}?api_key=${process.env.API_KEY}&language=en-US`
   );
   const data = await response.json();
   res.send(data);

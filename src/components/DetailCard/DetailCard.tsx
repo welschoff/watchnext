@@ -1,4 +1,6 @@
 import styles from './DetailCard.module.css';
+import Add from '../../assets/Add.svg';
+import Star from '../../assets/rating.svg';
 
 // export type GenreProps = {
 //   name: string;
@@ -28,13 +30,13 @@ DetailCardProps) {
         <p>{overview}</p>
       </article>
       <p className={styles.rating}>
-        <img src="src/assets/rating.svg" />
+        <img src={Star} />
         {vote_average}
       </p>
       {/* <p>{genres}</p> */}
       <button className={styles.button}>
         Add to Watchlist
-        <img src="src/assets/Add.svg" />
+        <img src={Add} />
       </button>
     </div>
   );

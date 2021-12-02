@@ -21,7 +21,7 @@ function LoginForm() {
   }
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <input
         type="text"
         value={username}

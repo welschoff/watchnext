@@ -4,14 +4,17 @@ import DetailCard, {
 } from '../../components/DetailCard/DetailCard';
 import { useEffect, useState } from 'react';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
+import { useParams } from 'react-router-dom';
 
 function Detail() {
+  const { id } = useParams();
   const [series, setSeries] = useState<DetailCardProps | null>(null);
 
   const getDetails = async () => {
-    const response = await fetch('http://localhost:3001/api/details');
+    const response = await fetch(`/api/detail/${id}`);
     const data = await response.json();
     setSeries(data);
+    console.log(data);
   };
 
   // console.log(series?.genres[0].name);
