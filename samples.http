@@ -21,4 +21,10 @@ GET http://localhost:3001/api/search/:name HTTP/1.1
 
 ### GET Details
 
-GET http://localhost:3001/api/details HTTP/1.1
+GET http://localhost:3001/api/detail HTTP/1.1
+
+
+### LOGIN
+
+GET http://localhost:3001/api/users/Hendrik/neuefische HTTP/1.1
+

@@ -9,6 +9,7 @@ import cors from 'cors';
 
 const port = process.env.PORT || 3001;
 const app = express();
+app.use(express.json());
 app.use(
   cors({
     origin: '*',
@@ -51,31 +52,26 @@ if (!process.env.MONGODB_URI) {
 // GET all users
 app.get('/api/users/', async (_request, response) => {
   const usersCollection = getUserCollection();
-  const currywurst = usersCollection.find();
-  const allUsers = await currywurst.toArray();
+  const user = usersCollection.find();
+  const allUsers = await user.toArray();
   response.send(allUsers);
 });
 
-type UserProps = {
-  username: string;
-  password: string;
-};
-
-// LOGIN a user
-app.post('/api/login', (request, response) => {
-  const usersCollection = getUserCollection();
-  const loginUser = request.body;
-
-  const isUserKnown = usersCollection.find(
-    ({ username, password }: UserProps) => {
-      username === loginUser.username && password === loginUser.password;
-    }
-  );
+// LOGIN A USER
+app.get('/api/users/:username/:password', async (req, res) => {
+  const userCollection = getUserCollection();
+  const username = req.params.username;
+  const password = req.params.password;
+  const isUserKnown = await userCollection.findOne({
+    username: username,
+    password: password,
+  });
   if (isUserKnown) {
-    response.status(200).send(`You are now logged in`);
+    res.send('Welcome');
   } else {
-    response.send(`Wrong username or password`);
+    res.send('Login failed');
   }
+  console.log(isUserKnown);
 });
 
 app.get('/api/hello', (_request, response) => {
@@ -95,3 +91,20 @@ connectDatabase(process.env.MONGODB_URI).then(() =>
     console.log(`Example app listening at http://localhost:${port}`);
   })
 );
+
+app.post('/api/login', async (request, response) => {
+  const { username, password } = request.body;
+
+  const userCollection = getUserCollection();
+
+  const existingUser = await userCollection.findOne({ username, password });
+  if (existingUser) {
+    response.setHeader('Set-Cookie', `username=${username}`);
+    response.send('Login successful');
+    return;
+  } else {
+    response
+      .status(401)
+      .send('Login failed. Check if username and password is correct');
+  }
+});
