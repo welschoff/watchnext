@@ -100,10 +100,12 @@ app.post('/api/login', async (request, response) => {
   const existingUser = await userCollection.findOne({ username, password });
   if (existingUser) {
     response.setHeader('Set-Cookie', `username=${username}`);
-    response.send('Login successful');
+    response.send(existingUser);
     return;
   } else {
+    alert('Wrong username or password');
     response
+
       .status(401)
       .send('Login failed. Check if username and password is correct');
   }
