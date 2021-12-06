@@ -38,15 +38,11 @@ function Search(): JSX.Element {
         {query &&
           results?.map((result) => (
             // eslint-disable-next-line react/jsx-key
-            <Link
-              style={{ textDecoration: 'none' }}
-              to={`/search/${result.id}`}
-            >
+            <Link to={`/search/${result.id}`} key={result.id}>
               <SearchResult
                 poster_path={result.poster_path}
                 name={result.name}
                 vote_average={result.vote_average}
-                key={result.id}
               />
             </Link>
           ))}

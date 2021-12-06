@@ -43,28 +43,11 @@ if (!process.env.MONGODB_URI) {
 }
 
 // GET all users
-app.get('/api/users/', async (_request, response) => {
+app.get('/api/users', async (_request, response) => {
   const usersCollection = getUserCollection();
-  const user = usersCollection.find();
-  const allUsers = await user.toArray();
+  const cursor = usersCollection.find();
+  const allUsers = await cursor.toArray();
   response.send(allUsers);
-});
-
-// LOGIN A USER
-app.get('/api/users/:username/:password', async (req, res) => {
-  const userCollection = getUserCollection();
-  const username = req.params.username;
-  const password = req.params.password;
-  const isUserKnown = await userCollection.findOne({
-    username: username,
-    password: password,
-  });
-  if (isUserKnown) {
-    res.send('Welcome');
-  } else {
-    res.send('Login failed');
-  }
-  console.log(isUserKnown);
 });
 
 app.get('/api/hello', (_request, response) => {
@@ -73,11 +56,6 @@ app.get('/api/hello', (_request, response) => {
 
 // Serve production bundle
 app.use(express.static('dist'));
-
-// Handle client routing, return all requests to the app
-// app.get('*', (_request, response) => {
-//   response.sendFile(path.join(__dirname, '../dist/index.html'));
-// });
 
 connectDatabase(process.env.MONGODB_URI).then(() =>
   app.listen(port, () => {
@@ -94,8 +72,7 @@ app.post('/api/login', async (request, response) => {
   const existingUser = await userCollection.findOne({ username, password });
   if (existingUser) {
     response.setHeader('Set-Cookie', `username=${username}`);
-    response.send(existingUser).status(200);
-    return;
+    response.send(existingUser);
   } else {
     response
       .status(401)

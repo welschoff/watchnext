@@ -18,7 +18,7 @@ function LoginForm() {
   }
 
   function validateForm() {
-    return username.length > 0 && password.length > 0;
+    return username.trim().length > 0 && password.trim().length > 0;
   }
 
   return (

@@ -1,7 +1,7 @@
 import { User } from '../types';
 
 export async function verifyLogin(user: Partial<User>): Promise<User> {
-  const response = await fetch('api/login', {
+  const response = await fetch('/api/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -13,6 +13,5 @@ export async function verifyLogin(user: Partial<User>): Promise<User> {
     throw errorMessage;
   }
   const result: User = await response.json();
-  console.log(result);
   return result;
 }
