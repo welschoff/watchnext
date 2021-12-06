@@ -3,18 +3,11 @@ import { connectDatabase } from './database';
 import { getUserCollection } from './database';
 import dotenv from 'dotenv';
 dotenv.config();
-// import path from 'path';
 import fetch from 'node-fetch';
-import cors from 'cors';
 
 const port = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    origin: '*',
-  })
-);
 
 // GET Details
 app.get('/api/detail/:id', async (req, res) => {
@@ -92,6 +85,7 @@ connectDatabase(process.env.MONGODB_URI).then(() =>
   })
 );
 
+//LOGIN a user
 app.post('/api/login', async (request, response) => {
   const { username, password } = request.body;
 
@@ -100,12 +94,10 @@ app.post('/api/login', async (request, response) => {
   const existingUser = await userCollection.findOne({ username, password });
   if (existingUser) {
     response.setHeader('Set-Cookie', `username=${username}`);
-    response.send(existingUser);
+    response.send(existingUser).status(200);
     return;
   } else {
-    alert('Wrong username or password');
     response
-
       .status(401)
       .send('Login failed. Check if username and password is correct');
   }

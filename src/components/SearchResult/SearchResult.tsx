@@ -4,6 +4,7 @@ export type SearchResultProps = {
   poster_path: object;
   name: string;
   vote_average: number;
+  id?: number;
 };
 
 function SearchResult({

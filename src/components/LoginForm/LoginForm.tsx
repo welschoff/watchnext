@@ -37,7 +37,6 @@ function LoginForm() {
         placeholder="password"
         onChange={(event) => setPassword(event.target.value)}
       />
-
       <input
         type="submit"
         value="Login"

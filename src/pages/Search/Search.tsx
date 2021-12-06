@@ -4,6 +4,7 @@ import SearchResult, {
 } from '../../components/SearchResult/SearchResult';
 import styles from './Search.module.css';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
+import { Link } from 'react-router-dom';
 
 function Search(): JSX.Element {
   const [results, setResults] = useState<SearchResultProps[] | null>([]);
@@ -37,11 +38,17 @@ function Search(): JSX.Element {
         {query &&
           results?.map((result) => (
             // eslint-disable-next-line react/jsx-key
-            <SearchResult
-              poster_path={result.poster_path}
-              name={result.name}
-              vote_average={result.vote_average}
-            />
+            <Link
+              style={{ textDecoration: 'none' }}
+              to={`/search/${result.id}`}
+            >
+              <SearchResult
+                poster_path={result.poster_path}
+                name={result.name}
+                vote_average={result.vote_average}
+                key={result.id}
+              />
+            </Link>
           ))}
       </div>
     </>

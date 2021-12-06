@@ -9,7 +9,7 @@ function Popular() {
   const [results, setResults] = useState<GetPopularProps[] | null>([]);
 
   const getSeries = async () => {
-    const response = await fetch('http://localhost:3001/api/popular/');
+    const response = await fetch('/api/popular');
     const data = await response.json();
     console.log(data);
     setResults(data.results);
