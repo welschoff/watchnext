@@ -18,11 +18,11 @@ function WatchlistCard({
       <img
         className={styles.image}
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-        alt=""
+        alt="Poster"
       />
       <section className={styles.info}>
         <span className={styles.rating}>
-          <img className={styles.star} src={Star} alt="" />
+          <img className={styles.star} src={Star} />
           {vote_average}
         </span>
         <span>Seasons {number_of_seasons}</span>
