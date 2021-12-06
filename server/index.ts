@@ -3,17 +3,11 @@ import { connectDatabase } from './database';
 import { getUserCollection } from './database';
 import dotenv from 'dotenv';
 dotenv.config();
-// import path from 'path';
 import fetch from 'node-fetch';
-import cors from 'cors';
 
 const port = process.env.PORT || 3001;
 const app = express();
-app.use(
-  cors({
-    origin: '*',
-  })
-);
+app.use(express.json());
 
 // GET Details
 app.get('/api/detail/:id', async (req, res) => {
@@ -49,33 +43,11 @@ if (!process.env.MONGODB_URI) {
 }
 
 // GET all users
-app.get('/api/users/', async (_request, response) => {
+app.get('/api/users', async (_request, response) => {
   const usersCollection = getUserCollection();
-  const currywurst = usersCollection.find();
-  const allUsers = await currywurst.toArray();
+  const cursor = usersCollection.find();
+  const allUsers = await cursor.toArray();
   response.send(allUsers);
-});
-
-type UserProps = {
-  username: string;
-  password: string;
-};
-
-// LOGIN a user
-app.post('/api/login', (request, response) => {
-  const usersCollection = getUserCollection();
-  const loginUser = request.body;
-
-  const isUserKnown = usersCollection.find(
-    ({ username, password }: UserProps) => {
-      username === loginUser.username && password === loginUser.password;
-    }
-  );
-  if (isUserKnown) {
-    response.status(200).send(`You are now logged in`);
-  } else {
-    response.send(`Wrong username or password`);
-  }
 });
 
 app.get('/api/hello', (_request, response) => {
@@ -85,13 +57,25 @@ app.get('/api/hello', (_request, response) => {
 // Serve production bundle
 app.use(express.static('dist'));
 
-// Handle client routing, return all requests to the app
-// app.get('*', (_request, response) => {
-//   response.sendFile(path.join(__dirname, '../dist/index.html'));
-// });
-
 connectDatabase(process.env.MONGODB_URI).then(() =>
   app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
   })
 );
+
+//LOGIN a user
+app.post('/api/login', async (request, response) => {
+  const { username, password } = request.body;
+
+  const userCollection = getUserCollection();
+
+  const existingUser = await userCollection.findOne({ username, password });
+  if (existingUser) {
+    response.setHeader('Set-Cookie', `username=${username}`);
+    response.send(existingUser);
+  } else {
+    response
+      .status(401)
+      .send('Login failed. Check if username and password is correct');
+  }
+});

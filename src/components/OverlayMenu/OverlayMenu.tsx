@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import styles from './OverlayMenu.module.css';
 import { Link } from 'react-router-dom';
+import Star from '../../assets/star.svg';
+import Friends from '../../assets/friends.svg';
+import Myseries from '../../assets/myseries.svg';
 
 function OverlayMenu() {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -22,19 +25,19 @@ function OverlayMenu() {
       >
         <Link to="/popular">
           <li>
-            <img src="src/assets/star.svg" alt="" />
+            <img src={Star} alt="" />
             <a href="">Popular</a>
           </li>
         </Link>
         <Link to="">
           <li>
-            <img src="src/assets/myseries.svg" alt="" />
+            <img src={Myseries} alt="" />
             <a href="">Watchlist</a>
           </li>
         </Link>
         <Link to="">
           <li>
-            <img src="src/assets/friends.svg" alt="" />
+            <img src={Friends} alt="" />
             <a href="">Friends</a>
           </li>
         </Link>
