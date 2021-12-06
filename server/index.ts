@@ -1,4 +1,5 @@
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import { connectDatabase } from './database';
 import { getUserCollection } from './database';
 import { getWatchlistCollection } from './database';
@@ -9,6 +10,7 @@ import fetch from 'node-fetch';
 const port = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 // ADD series to watchlist
 app.post('/api/watchlist', async (request, response) => {
