@@ -1,6 +1,7 @@
 import express from 'express';
 import { connectDatabase } from './database';
 import { getUserCollection } from './database';
+import { getWatchlistCollection } from './database';
 import dotenv from 'dotenv';
 dotenv.config();
 import fetch from 'node-fetch';
@@ -8,6 +9,27 @@ import fetch from 'node-fetch';
 const port = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
+
+// ADD series to watchlist
+app.post('/api/watchlist', async (request, response) => {
+  const watchlistCollection = getWatchlistCollection();
+  const newSeries = request.body;
+
+  if (typeof newSeries.name !== 'string') {
+    response.status(404).send('Missing properties');
+  }
+  const isSeriesKnown = await watchlistCollection.findOne({
+    name: newSeries.name,
+  });
+  if (isSeriesKnown) {
+    response
+      .status(409)
+      .send(`There is already someone called ${newSeries.name}`);
+  } else {
+    watchlistCollection.insertOne(newSeries);
+    response.send(`${newSeries.name} was added`);
+  }
+});
 
 // GET Details
 app.get('/api/detail/:id', async (req, res) => {

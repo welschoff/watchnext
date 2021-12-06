@@ -25,3 +25,12 @@ GET http://localhost:3001/api/detail HTTP/1.1
 
 
 
+### POST series to Watchlist
+
+POST http://localhost:3001/api/watchlist HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Breaking Bad"
+}
+
