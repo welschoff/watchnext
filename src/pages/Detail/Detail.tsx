@@ -5,10 +5,14 @@ import DetailCard, {
 import { useEffect, useState } from 'react';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import { useParams } from 'react-router-dom';
+import { WatchlistCardProps } from '../../components/WatchlistCard/WatchlistCard';
 
 function Detail() {
   const { id } = useParams();
   const [series, setSeries] = useState<DetailCardProps | null>(null);
+  const [addWatchlist, setAddWatchlist] = useState<WatchlistCardProps | null>(
+    null
+  );
 
   const getDetails = async () => {
     const response = await fetch(`/api/detail/${id}`);
