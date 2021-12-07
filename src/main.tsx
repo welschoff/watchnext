@@ -5,6 +5,7 @@ import Login from './pages/LoginPage/Login';
 import Popular from './pages/Popular/Popular';
 import Search from './pages/Search/Search';
 import Detail from './pages/Detail/Detail';
+import Watchlist from './pages/Watchlist/Watchlist';
 
 const rootElement = document.getElementById('root');
 render(
@@ -15,6 +16,7 @@ render(
       <Route path="/popular/:id" element={<Detail />} />
       <Route path="/search" element={<Search />} />
       <Route path="/search/:id" element={<Detail />} />
+      <Route path="/watchlist" element={<Watchlist />} />
     </Routes>
   </BrowserRouter>,
   rootElement

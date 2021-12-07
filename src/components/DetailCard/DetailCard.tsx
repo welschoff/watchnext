@@ -7,6 +7,7 @@ import Star from '../../assets/rating.svg';
 // };
 
 export type DetailCardProps = {
+  id?: number;
   poster_path: object;
   overview: string;
   vote_average: number;

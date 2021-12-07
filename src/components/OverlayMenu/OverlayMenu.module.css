@@ -76,7 +76,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     width: 40%;
-    transform: translateY(-121%);
+    transform: translateY(-125%);
     transition: transform 0.5s ease-in;
   }
 

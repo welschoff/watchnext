@@ -4,6 +4,7 @@ import GetPopular, {
 } from '../../components/GetPopular/GetPopular';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Popular.module.css';
 
 function Popular() {
   const [results, setResults] = useState<GetPopularProps[] | null>([]);
@@ -22,15 +23,19 @@ function Popular() {
   return (
     <section>
       <OverlayMenu />
-      <div>
+      <div className={styles.container}>
         {results?.map((result) => (
           // eslint-disable-next-line react/jsx-key
-          <Link style={{ textDecoration: 'none' }} to={`/popular/${result.id}`}>
+          <Link
+            style={{ textDecoration: 'none' }}
+            key={result.id}
+            to={`/popular/${result.id}`}
+          >
             <GetPopular
               poster_path={result.poster_path}
               name={result.name}
               vote_average={result.vote_average}
-              key={result.id}
+              // overview={result.overview}
             />
           </Link>
         ))}

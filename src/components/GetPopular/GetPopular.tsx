@@ -5,10 +5,16 @@ export type GetPopularProps = {
   poster_path: object;
   name: string;
   vote_average: number;
+  // overview: string;
   id?: number;
 };
 
-function GetPopular({ poster_path, name, vote_average }: GetPopularProps) {
+function GetPopular({
+  poster_path,
+  name,
+  vote_average,
+}: // overview,
+GetPopularProps) {
   return (
     <div className={styles.container}>
       <img
@@ -16,11 +22,12 @@ function GetPopular({ poster_path, name, vote_average }: GetPopularProps) {
         alt={`Cover of ${name}`}
       />
       <article className={styles.info}>
-        <h3>{name}</h3>
-        <div className={styles.rating}>
+        <span>{name}</span>
+        <span className={styles.rating}>
           <img src={Star} />
           {vote_average}
-        </div>
+        </span>
+        {/* <p className={styles.overview}>{overview}</p> */}
       </article>
     </div>
   );

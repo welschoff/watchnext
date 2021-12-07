@@ -11,7 +11,7 @@ function Search(): JSX.Element {
   const [query, setQuery] = useState<string | ''>('');
 
   const getSeries = async () => {
-    const response = await fetch(`http://localhost:3001/api/search/${query}`);
+    const response = await fetch(`/api/search/${query}`);
     const data = await response.json();
     console.log(data);
     setResults(data.results);
