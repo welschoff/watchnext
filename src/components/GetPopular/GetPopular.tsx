@@ -24,7 +24,7 @@ GetPopularProps) {
       <article className={styles.info}>
         <span>{name}</span>
         <span className={styles.rating}>
-          <img src={Star} />
+          <img className={styles.star} src={Star} />
           {vote_average}
         </span>
         {/* <p className={styles.overview}>{overview}</p> */}
