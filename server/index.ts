@@ -26,7 +26,7 @@ app.post('/api/watchlist', async (request, response) => {
   if (isSeriesKnown) {
     response
       .status(409)
-      .send(`There is already someone called ${newSeries.name}`);
+      .send(`There is already a series called ${newSeries.name}`);
   } else {
     watchlistCollection.insertOne(newSeries);
     response.send(`${newSeries.name} was added`);
