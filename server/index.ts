@@ -2,7 +2,6 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import { connectDatabase } from './database';
 import { getUserCollection } from './database';
-import { getWatchlistCollection } from './database';
 import dotenv from 'dotenv';
 dotenv.config();
 import fetch from 'node-fetch';
@@ -12,25 +11,20 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-// ADD series to watchlist
-app.post('/api/watchlist', async (request, response) => {
-  const watchlistCollection = getWatchlistCollection();
+// PATCH a new series to a user
+app.patch('/api/users/:username', async (request, response) => {
+  const userCollection = getUserCollection();
+  const username = request.params.username;
   const newSeries = request.body;
-
-  if (typeof newSeries.name !== 'string') {
-    response.status(404).send('Missing properties');
+  const updated = await userCollection.updateOne(
+    { username: username },
+    { $set: newSeries }
+  );
+  if (updated.matchedCount === 0) {
+    response.status(404).send('Character not found');
+    return;
   }
-  const isSeriesKnown = await watchlistCollection.findOne({
-    name: newSeries.name,
-  });
-  if (isSeriesKnown) {
-    response
-      .status(409)
-      .send(`There is already a series called ${newSeries.name}`);
-  } else {
-    watchlistCollection.insertOne(newSeries);
-    response.send(`${newSeries.name} was added`);
-  }
+  response.send('Updated');
 });
 
 // GET Details
