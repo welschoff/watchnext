@@ -29,7 +29,7 @@ function OverlayMenu() {
             <a href="">Popular</a>
           </li>
         </Link>
-        <Link to="">
+        <Link to="/watchlist">
           <li>
             <img src={Myseries} alt="" />
             <a href="">Watchlist</a>

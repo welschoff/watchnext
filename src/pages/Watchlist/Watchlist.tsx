@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import WatchlistCard from '../../components/WatchlistCard/WatchlistCard';
 import { WatchlistCardProps } from '../../components/WatchlistCard/WatchlistCard';
 
@@ -18,13 +19,16 @@ function Watchlist() {
 
   return (
     <div>
-      {series && (
-        <WatchlistCard
-          poster_path={series.poster_path}
-          vote_average={series.vote_average}
-          number_of_seasons={series.number_of_seasons}
-        />
-      )}
+      <OverlayMenu />
+      <div>
+        {series && (
+          <WatchlistCard
+            poster_path={series.poster_path}
+            vote_average={series.vote_average}
+            number_of_seasons={series.number_of_seasons}
+          />
+        )}
+      </div>
     </div>
   );
 }
