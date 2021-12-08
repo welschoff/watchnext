@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import WatchlistCard from '../../components/WatchlistCard/WatchlistCard';
-import { WatchlistCardProps } from '../../components/WatchlistCard/WatchlistCard';
+import { DetailCardProps } from '../../types';
 
 function Watchlist() {
-  const [series, setSeries] = useState<WatchlistCardProps | null>(null);
+  const [series, setSeries] = useState<DetailCardProps[]>([]);
+
+  const username = localStorage.getItem('Current user');
+  console.log({ username });
 
   const getDetails = async () => {
-    const response = await fetch('/api/detail/90461');
+    const response = await fetch(`/api/users/${username}`);
     const data = await response.json();
-    setSeries(data);
-    console.log(data);
+    setSeries(data.watchlist);
+    console.log({ data });
   };
 
   useEffect(() => {
@@ -21,13 +24,13 @@ function Watchlist() {
     <div>
       <OverlayMenu />
       <div>
-        {series && (
+        {series?.map((serie) => (
+          // eslint-disable-next-line react/jsx-key
           <WatchlistCard
-            poster_path={series.poster_path}
-            vote_average={series.vote_average}
-            number_of_seasons={series.number_of_seasons}
+            poster_path={serie.poster_path}
+            vote_average={serie.vote_average}
           />
-        )}
+        ))}
       </div>
     </div>
   );

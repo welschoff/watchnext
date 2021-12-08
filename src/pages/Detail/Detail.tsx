@@ -1,7 +1,6 @@
 import styles from './Detail.module.css';
-import DetailCard, {
-  DetailCardProps,
-} from '../../components/DetailCard/DetailCard';
+import DetailCard from '../../components/DetailCard/DetailCard';
+import { DetailCardProps } from '../../types';
 import { useEffect, useState } from 'react';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import { useParams } from 'react-router-dom';
@@ -17,8 +16,6 @@ function Detail() {
     console.log(data);
   };
 
-  // console.log(series?.genres[0].name);
-
   useEffect(() => {
     getDetails();
   }, []);
@@ -32,7 +29,6 @@ function Detail() {
             poster_path={series.poster_path}
             overview={series.overview}
             vote_average={series.vote_average}
-            // genres={series.genres[0].name}
           />
         )}
       </div>

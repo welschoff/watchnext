@@ -1,19 +1,19 @@
-function useAddToWatchlist(series: {
-  id: number;
-  poster_path: string;
-  vote_average: string;
-  number_of_seasons: number;
-}) {
+function useAddToWatchlist(
+  series: {
+    poster_path: string;
+    vote_average: number;
+  }[]
+) {
   const username = localStorage.getItem('Current user');
-  const id = series.id;
+  console.log(username);
+  console.log({ series });
 
   const AddToWatchlist = async function () {
-    const response = await fetch(`api/users/${username}/${id}`);
-    if (!response.ok) {
-      console.log(`${series} already exists`);
-    } else {
-      await fetch('/api/users/${id}', {
-        method: 'POST',
+    const response = await fetch(`api/users/${username}`);
+    if (response.ok) {
+      console.log(`${username} exists`);
+      await fetch(`/api/users/${username}`, {
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },

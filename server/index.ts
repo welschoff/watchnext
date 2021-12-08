@@ -18,7 +18,14 @@ app.patch('/api/users/:username', async (request, response) => {
   const newSeries = request.body;
   const updated = await userCollection.updateOne(
     { username: username },
-    { $set: newSeries }
+
+    {
+      $push: {
+        watchlist: {
+          $each: newSeries,
+        },
+      },
+    }
   );
   if (updated.matchedCount === 0) {
     response.status(404).send('Character not found');
@@ -95,5 +102,35 @@ app.post('/api/login', async (request, response) => {
     response
       .status(401)
       .send('Login failed. Check if username and password is correct');
+  }
+});
+
+// GET logged User
+
+app.get('/api/me', async (request, response) => {
+  const username = request.cookies.username;
+  const usersCollection = getUserCollection();
+  const loggedUser = await usersCollection.findOne({
+    username: username,
+  });
+
+  if (loggedUser) {
+    response.send(loggedUser);
+  } else {
+    response.status(404).send('User not found');
+  }
+});
+
+app.get('/api/users/:username', async (request, response) => {
+  const username = request.params.username;
+  const usersCollection = getUserCollection();
+  const user = await usersCollection.findOne({
+    username: username,
+  });
+
+  if (user) {
+    response.send(user);
+  } else {
+    response.status(404).send('User not found');
   }
 });

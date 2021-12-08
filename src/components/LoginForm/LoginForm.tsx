@@ -14,6 +14,7 @@ function LoginForm() {
 
     const user: Partial<User> = { username, password };
     await verifyLogin(user);
+    localStorage.setItem('Current user', username);
     navigate('/popular');
   }
 

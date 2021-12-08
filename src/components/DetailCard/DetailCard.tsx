@@ -1,25 +1,25 @@
 import styles from './DetailCard.module.css';
 import Add from '../../assets/Add.svg';
 import Star from '../../assets/rating.svg';
+import { DetailCardProps } from '../../types';
+import useAddToWatchlist from '../../utils/useAddToWatchlist';
+import { FormEvent } from 'react';
 
-// export type GenreProps = {
-//   name: string;
-// };
+function DetailCard({ poster_path, overview, vote_average }: DetailCardProps) {
+  const series = [
+    {
+      vote_average,
+      poster_path,
+    },
+  ];
+  console.log({ series });
+  const AddToWatchlist = useAddToWatchlist(series);
 
-export type DetailCardProps = {
-  id?: number;
-  poster_path: object;
-  overview: string;
-  vote_average: number;
-  //   genres: GenreProps[];
-};
+  const handleClick = async function (event: FormEvent) {
+    event.preventDefault();
+    await AddToWatchlist();
+  };
 
-function DetailCard({
-  poster_path,
-  overview,
-  vote_average,
-}: //   genres,
-DetailCardProps) {
   return (
     <div className={styles.container}>
       <img
@@ -34,8 +34,7 @@ DetailCardProps) {
         <img src={Star} />
         {vote_average}
       </p>
-      {/* <p>{genres}</p> */}
-      <button className={styles.button}>
+      <button className={styles.button} onClick={handleClick}>
         Add to Watchlist
         <img src={Add} />
       </button>

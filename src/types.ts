@@ -5,3 +5,9 @@ export type User = {
   username: string;
   password: string;
 };
+
+export type DetailCardProps = {
+  poster_path: string;
+  overview?: string;
+  vote_average: number;
+};
