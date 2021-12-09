@@ -1,8 +1,21 @@
 import styles from './WatchlistCard.module.css';
 import Star from '../../assets/rating.svg';
 import { DetailCardProps } from '../../types';
+import useDeleteFromWatchlist from '../../utils/useDeleteFromWatchlist';
+import { FormEvent } from 'react';
 
 function WatchlistCard({ poster_path, vote_average }: DetailCardProps) {
+  const series = {
+    poster_path,
+  };
+
+  const DeleteFromWatchlist = useDeleteFromWatchlist(series);
+
+  const handleClick = async function (event: FormEvent) {
+    event.preventDefault();
+    await DeleteFromWatchlist();
+    window.location.reload();
+  };
   return (
     <div className={styles.container}>
       <img
@@ -15,6 +28,7 @@ function WatchlistCard({ poster_path, vote_average }: DetailCardProps) {
           <img className={styles.star} src={Star} />
           {vote_average}
         </span>
+        <button onClick={handleClick}>Remove</button>
       </section>
     </div>
   );
