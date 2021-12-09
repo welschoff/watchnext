@@ -23,6 +23,18 @@ app.patch('/api/users/:username', async (request, response) => {
     response.send('Updated');
 });
 
+// DELETE a series from watchlist
+app.put('/api/users/:username', (request, response) => {
+  const userCollection = getUserCollection();
+  const username = request.params.username;
+  const deleteSeries = request.body;
+  userCollection.updateOne(
+    { username: username },
+    { $pull: { watchlist: deleteSeries } }
+  );
+  response.send('deleted');
+});
+
 // GET Details
 app.get('/api/detail/:id', async (req, res) => {
   const response = await fetch(
