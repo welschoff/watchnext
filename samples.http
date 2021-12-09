@@ -38,12 +38,12 @@ Content-Type: application/json
 PATCH http://localhost:3001/api/users/Hendrik HTTP/1.1
 Content-Type: application/json
 
-[
-    {
-        "vote_average": 7,
-        "poster_path": "ttt"
-    }
-]
+
+{
+    "vote_average": 7,
+    "poster_path": "aaaa"
+}
+
 
 
 ### Get logged in user

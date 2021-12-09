@@ -16,22 +16,11 @@ app.patch('/api/users/:username', async (request, response) => {
   const userCollection = getUserCollection();
   const username = request.params.username;
   const newSeries = request.body;
-  const updated = await userCollection.updateOne(
+  await userCollection.updateOne(
     { username: username },
-
-    {
-      $push: {
-        watchlist: {
-          $each: newSeries,
-        },
-      },
-    }
-  );
-  if (updated.matchedCount === 0) {
-    response.status(404).send('Character not found');
-    return;
-  }
-  response.send('Updated');
+    { $addToSet: { watchlist: newSeries } }
+  ),
+    response.send('Updated');
 });
 
 // GET Details
@@ -104,6 +93,8 @@ app.post('/api/login', async (request, response) => {
       .send('Login failed. Check if username and password is correct');
   }
 });
+
+// const token = jwt.sign(username, JWT_SECRET)
 
 // GET logged User
 

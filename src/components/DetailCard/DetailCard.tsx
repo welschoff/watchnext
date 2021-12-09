@@ -6,12 +6,10 @@ import useAddToWatchlist from '../../utils/useAddToWatchlist';
 import { FormEvent } from 'react';
 
 function DetailCard({ poster_path, overview, vote_average }: DetailCardProps) {
-  const series = [
-    {
-      vote_average,
-      poster_path,
-    },
-  ];
+  const series = {
+    vote_average,
+    poster_path,
+  };
   console.log({ series });
   const AddToWatchlist = useAddToWatchlist(series);
 
