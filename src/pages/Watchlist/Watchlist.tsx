@@ -9,14 +9,17 @@ function Watchlist() {
   const username = localStorage.getItem('Current user');
   console.log({ username });
 
-  const getDetails = async () => {
-    const response = await fetch(`/api/users/${username}`);
-    const data = await response.json();
-    setSeries(data.watchlist);
-    console.log({ data });
-  };
-
   useEffect(() => {
+    const getDetails = async () => {
+      const response = await fetch(`/api/users/${username}`);
+      const data = await response.json();
+      const sortArray = await data.watchlist.sort(
+        (a: { vote_average: number }, b: { vote_average: number }) => {
+          return b.vote_average - a.vote_average;
+        }
+      );
+      setSeries(sortArray);
+    };
     getDetails();
   }, []);
 
@@ -27,6 +30,7 @@ function Watchlist() {
         {series?.map((serie) => (
           // eslint-disable-next-line react/jsx-key
           <WatchlistCard
+            name={serie.name}
             poster_path={serie.poster_path}
             vote_average={serie.vote_average}
           />
