@@ -1,4 +1,5 @@
 function useAddToWatchlist(series: {
+  name: string | undefined;
   poster_path: string;
   vote_average: number;
 }) {

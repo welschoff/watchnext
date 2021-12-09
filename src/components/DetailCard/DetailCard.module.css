@@ -38,19 +38,10 @@
   padding-right: 0.4rem;
 }
 
-.button {
+.heart {
   background: none;
-  color: var(--color-text);
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: 50%;
   position: absolute;
-  bottom: 1%;
-  right: 1%;
-}
-
-.button img {
-  width: 1.5rem;
+  bottom: 2%;
+  right: 4%;
+  width: auto;
 }

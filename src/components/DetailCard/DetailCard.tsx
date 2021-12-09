@@ -1,12 +1,18 @@
 import styles from './DetailCard.module.css';
-import Add from '../../assets/Add.svg';
 import Star from '../../assets/rating.svg';
 import { DetailCardProps } from '../../types';
 import useAddToWatchlist from '../../utils/useAddToWatchlist';
 import { FormEvent } from 'react';
+import Heart from '../../assets/heart.svg';
 
-function DetailCard({ poster_path, overview, vote_average }: DetailCardProps) {
+function DetailCard({
+  poster_path,
+  overview,
+  vote_average,
+  name,
+}: DetailCardProps) {
   const series = {
+    name,
     vote_average,
     poster_path,
   };
@@ -32,9 +38,8 @@ function DetailCard({ poster_path, overview, vote_average }: DetailCardProps) {
         <img src={Star} />
         {vote_average}
       </p>
-      <button className={styles.button} onClick={handleClick}>
-        Add to Watchlist
-        <img src={Add} />
+      <button className={styles.heart} onClick={handleClick}>
+        <img src={Heart} />
       </button>
     </div>
   );

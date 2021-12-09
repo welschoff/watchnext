@@ -7,6 +7,7 @@ export type User = {
 };
 
 export type DetailCardProps = {
+  name?: string;
   poster_path: string;
   overview?: string;
   vote_average: number;

@@ -29,6 +29,7 @@ function Detail() {
             poster_path={series.poster_path}
             overview={series.overview}
             vote_average={series.vote_average}
+            name={series.name}
           />
         )}
       </div>
