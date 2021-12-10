@@ -6,6 +6,7 @@ import Popular from './pages/Popular/Popular';
 import Search from './pages/Search/Search';
 import Detail from './pages/Detail/Detail';
 import Watchlist from './pages/Watchlist/Watchlist';
+import FriendsPage from './pages/FriendsPage/FriendsPage';
 
 const rootElement = document.getElementById('root');
 render(
@@ -18,6 +19,7 @@ render(
       <Route path="/search/:id" element={<Detail />} />
       <Route path="/watchlist" element={<Watchlist />} />
       <Route path="/watchlist/:id" element={<Detail />} />
+      <Route path="/friends" element={<FriendsPage />} />
     </Routes>
   </BrowserRouter>,
   rootElement
