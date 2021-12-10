@@ -34,3 +34,7 @@
   background: none;
   width: auto;
 }
+
+.identifier {
+  display: none;
+}

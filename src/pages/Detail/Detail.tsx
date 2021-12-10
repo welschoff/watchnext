@@ -30,6 +30,7 @@ function Detail() {
             overview={series.overview}
             vote_average={series.vote_average}
             name={series.name}
+            id={series.id}
           />
         )}
       </div>

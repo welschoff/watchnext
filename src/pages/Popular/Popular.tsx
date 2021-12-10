@@ -25,7 +25,6 @@ function Popular() {
       <OverlayMenu />
       <div className={styles.container}>
         {results?.map((result) => (
-          // eslint-disable-next-line react/jsx-key
           <Link
             style={{ textDecoration: 'none' }}
             key={result.id}

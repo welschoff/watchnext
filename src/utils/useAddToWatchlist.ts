@@ -1,8 +1,11 @@
-function useAddToWatchlist(series: {
+export type WatchlistProps = {
+  id?: number;
   name: string | undefined;
   poster_path: string;
   vote_average: number;
-}) {
+};
+
+function useAddToWatchlist(series: WatchlistProps) {
   const username = localStorage.getItem('Current user');
   console.log(username);
   console.log({ series });

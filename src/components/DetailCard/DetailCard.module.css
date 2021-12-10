@@ -45,3 +45,7 @@
   right: 4%;
   width: auto;
 }
+
+.identifier {
+  display: none;
+}

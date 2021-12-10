@@ -5,9 +5,17 @@ import useDeleteFromWatchlist from '../../utils/useDeleteFromWatchlist';
 import { FormEvent } from 'react';
 import remove from '../../assets/remove.svg';
 
-function WatchlistCard({ poster_path, vote_average, name }: DetailCardProps) {
+function WatchlistCard({
+  poster_path,
+  vote_average,
+  name,
+  id,
+}: DetailCardProps) {
   const series = {
     poster_path,
+    vote_average,
+    id,
+    name,
   };
 
   const DeleteFromWatchlist = useDeleteFromWatchlist(series);
@@ -23,10 +31,10 @@ function WatchlistCard({ poster_path, vote_average, name }: DetailCardProps) {
       <img
         className={styles.image}
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-        alt="Poster"
       />
       <section className={styles.info}>
         <div>
+          <span className={styles.identifier}>{id}</span>
           <span>{name}</span>
           <span className={styles.rating}>
             <img className={styles.star} src={Star} />

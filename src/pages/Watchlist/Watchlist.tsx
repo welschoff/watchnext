@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import WatchlistCard from '../../components/WatchlistCard/WatchlistCard';
 import { DetailCardProps } from '../../types';
@@ -28,16 +29,22 @@ function Watchlist() {
       <OverlayMenu />
       <div>
         {series?.map((serie) => (
-          // eslint-disable-next-line react/jsx-key
-          <WatchlistCard
-            name={serie.name}
-            poster_path={serie.poster_path}
-            vote_average={serie.vote_average}
-          />
+          <Link
+            style={{ textDecoration: 'none' }}
+            to={`/watchlist/${serie.id}`}
+            key={serie.name}
+          >
+            <WatchlistCard
+              name={serie.name}
+              poster_path={serie.poster_path}
+              vote_average={serie.vote_average}
+              id={serie.id}
+              overview={serie.overview}
+            />
+          </Link>
         ))}
       </div>
     </div>
   );
 }
-
 export default Watchlist;
