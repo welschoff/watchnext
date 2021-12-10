@@ -13,5 +13,7 @@ export async function verifyLogin(user: Partial<User>): Promise<User> {
     throw errorMessage;
   }
   const result: User = await response.json();
+  console.log({ user });
+  console.log({ localStorage });
   return result;
 }

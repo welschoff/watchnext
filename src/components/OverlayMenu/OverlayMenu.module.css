@@ -1,16 +1,19 @@
 .nav {
   display: flex;
   align-items: center;
-  min-height: 8vh;
+  height: 8vh;
   background-color: var(--color-secondary);
   font-family: var(--font-family);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .nav_links {
   display: flex;
   justify-content: space-around;
   padding: 0;
-  z-index: 1;
 }
 
 .nav_links a {

@@ -17,6 +17,7 @@ render(
       <Route path="/search" element={<Search />} />
       <Route path="/search/:id" element={<Detail />} />
       <Route path="/watchlist" element={<Watchlist />} />
+      <Route path="/watchlist/:id" element={<Detail />} />
     </Routes>
   </BrowserRouter>,
   rootElement

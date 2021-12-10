@@ -2,7 +2,6 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import { connectDatabase } from './database';
 import { getUserCollection } from './database';
-import { getWatchlistCollection } from './database';
 import dotenv from 'dotenv';
 dotenv.config();
 import fetch from 'node-fetch';
@@ -12,25 +11,28 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-// ADD series to watchlist
-app.post('/api/watchlist', async (request, response) => {
-  const watchlistCollection = getWatchlistCollection();
+// PATCH a new series to a user
+app.patch('/api/users/:username', async (request, response) => {
+  const userCollection = getUserCollection();
+  const username = request.params.username;
   const newSeries = request.body;
+  await userCollection.updateOne(
+    { username: username },
+    { $addToSet: { watchlist: newSeries } }
+  ),
+    response.send('Updated');
+});
 
-  if (typeof newSeries.name !== 'string') {
-    response.status(404).send('Missing properties');
-  }
-  const isSeriesKnown = await watchlistCollection.findOne({
-    name: newSeries.name,
-  });
-  if (isSeriesKnown) {
-    response
-      .status(409)
-      .send(`There is already a series called ${newSeries.name}`);
-  } else {
-    watchlistCollection.insertOne(newSeries);
-    response.send(`${newSeries.name} was added`);
-  }
+// DELETE a series from watchlist
+app.put('/api/users/:username', (request, response) => {
+  const userCollection = getUserCollection();
+  const username = request.params.username;
+  const deleteSeries = request.body;
+  userCollection.updateOne(
+    { username: username },
+    { $pull: { watchlist: deleteSeries } }
+  );
+  response.send('deleted');
 });
 
 // GET Details
@@ -101,5 +103,37 @@ app.post('/api/login', async (request, response) => {
     response
       .status(401)
       .send('Login failed. Check if username and password is correct');
+  }
+});
+
+// const token = jwt.sign(username, JWT_SECRET)
+
+// GET logged User
+
+app.get('/api/me', async (request, response) => {
+  const username = request.cookies.username;
+  const usersCollection = getUserCollection();
+  const loggedUser = await usersCollection.findOne({
+    username: username,
+  });
+
+  if (loggedUser) {
+    response.send(loggedUser);
+  } else {
+    response.status(404).send('User not found');
+  }
+});
+
+app.get('/api/users/:username', async (request, response) => {
+  const username = request.params.username;
+  const usersCollection = getUserCollection();
+  const user = await usersCollection.findOne({
+    username: username,
+  });
+
+  if (user) {
+    response.send(user);
+  } else {
+    response.status(404).send('User not found');
   }
 });
