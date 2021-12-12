@@ -76,6 +76,16 @@ app.get('/api/users', async (_request, response) => {
   response.send(allUsers);
 });
 
+// GET users without logged User
+app.get('/api/friends/:username', async (request, response) => {
+  const usersCollection = getUserCollection();
+  const cursor = usersCollection.find({
+    username: { $ne: request.params.username },
+  });
+  const allUsers = await cursor.toArray();
+  response.send(allUsers);
+});
+
 app.get('/api/hello', (_request, response) => {
   response.json({ message: 'Hello from server' });
 });

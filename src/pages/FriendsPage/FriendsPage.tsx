@@ -6,10 +6,11 @@ import { FriendsPageProps } from '../../types';
 
 function FriendsPage() {
   const [friends, setFriends] = useState<FriendsPageProps[]>([]);
-  localStorage.getItem('Current user');
+
+  const username = localStorage.getItem('Current user');
 
   const getFriends = async () => {
-    const response = await fetch('/api/users');
+    const response = await fetch(`api/friends/${username}`);
     const data = await response.json();
     console.log(data);
     setFriends(data);

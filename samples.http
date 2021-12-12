@@ -2,6 +2,10 @@
 
 GET http://localhost:3001/api/users HTTP/1.1
 
+### GET users without logged User
+
+GET http://localhost:3001/api/friends/Hendrik HTTP/1.1
+
 ### Login a user
 POST http://localhost:3001/api/login HTTP/1.1
 Content-Type: application/json
