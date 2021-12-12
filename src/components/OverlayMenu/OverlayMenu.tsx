@@ -35,7 +35,7 @@ function OverlayMenu() {
             <a href="">Watchlist</a>
           </li>
         </Link>
-        <Link to="">
+        <Link to="/friends">
           <li>
             <img src={Friends} alt="" />
             <a href="">Friends</a>
