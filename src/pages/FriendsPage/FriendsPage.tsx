@@ -12,7 +12,6 @@ function FriendsPage() {
   const getFriends = async () => {
     const response = await fetch(`api/friends/${username}`);
     const data = await response.json();
-    console.log(data);
     setFriends(data);
   };
 

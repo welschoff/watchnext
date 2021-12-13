@@ -9,22 +9,6 @@ function Friendlist({ username }: FriendsPageProps) {
         <img src={Profile} />
         <p>{username}</p>
       </div>
-      {/* <div className={styles.friendcard}>
-        <img src={Profile} alt="" />
-        <p>David</p>
-      </div>
-      <div className={styles.friendcard}>
-        <img src={Profile} alt="" />
-        <p>David</p>
-      </div>
-      <div className={styles.friendcard}>
-        <img src={Profile} alt="" />
-        <p>David</p>
-      </div>
-      <div className={styles.friendcard}>
-        <img src={Profile} alt="" />
-        <p>David</p>
-      </div> */}
     </div>
   );
 }
