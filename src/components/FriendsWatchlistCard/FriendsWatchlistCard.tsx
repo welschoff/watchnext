@@ -22,17 +22,18 @@ function FriendsWatchlistCard({
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
       />
       <section className={styles.info}>
-        <div>
-          <span className={styles.identifier}>{id}</span>
-          <span>{name}</span>
-          <span className={styles.rating}>
-            <img className={styles.star} src={Star} />
-            {vote_average}
-          </span>
-        </div>
-        <button className={styles.remove}>
+        <span className={styles.identifier}>{id}</span>
+        <h3>{name}</h3>
+        <span className={styles.rating}>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tmdb.new.logo.svg/1200px-Tmdb.new.logo.svg.png"
+            alt=""
+          />
+          {vote_average}
+        </span>
+        {/* <button className={styles.remove}>
           <img src={remove} alt="" />
-        </button>
+        </button> */}
       </section>
     </div>
   );
