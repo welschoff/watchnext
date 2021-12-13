@@ -31,13 +31,10 @@ app.patch('/api/users/:username', async (request, response) => {
 });
 
 // GET watchlist
-app.get('/api/watchlist/:username', (request, response) => {
+app.get('/api/watchlist/:username', async (request, response) => {
   const usersCollection = getUserCollection();
-  const username = request.params.username;
-  const watchlist = usersCollection.findOne({
-    username: username,
-    watchlist: [],
-  });
+  const username = request.body;
+  const watchlist = await usersCollection.findOne({ username: username });
   response.send(watchlist);
 });
 
@@ -65,7 +62,7 @@ app.get('/api/detail/:id', async (req, res) => {
 // GET Popular Series
 app.get('/api/popular', async (_req, res) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&page=`
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&page=1`
   );
   const data = await response.json();
   console.log(data);

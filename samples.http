@@ -7,6 +7,7 @@ GET http://localhost:3001/api/users HTTP/1.1
 
 GET http://localhost:3001/api/watchlist/Hendrik HTTP/1.1
 
+
 ### GET users without logged User
 
 GET http://localhost:3001/api/friends/Fabi HTTP/1.1

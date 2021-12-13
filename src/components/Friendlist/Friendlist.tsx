@@ -4,7 +4,10 @@ import { FriendsPageProps } from '../../types';
 
 function Friendlist({ username }: FriendsPageProps) {
   return (
-    <div className={styles.container}>
+    <div
+      onClick={() => sessionStorage.setItem('activeUser', username)}
+      className={styles.container}
+    >
       <div className={styles.friendcard}>
         <img src={Profile} />
         <p>{username}</p>
