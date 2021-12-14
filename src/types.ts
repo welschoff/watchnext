@@ -12,6 +12,7 @@ export type DetailCardProps = {
   poster_path: string;
   overview?: string;
   vote_average: number;
+  first_air_date?: string;
 };
 
 export type FriendsPageProps = {

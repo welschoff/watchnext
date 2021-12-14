@@ -1,0 +1,7 @@
+.inactive {
+  fill: white;
+}
+
+.active {
+  fill: var(--color-primary);
+}

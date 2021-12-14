@@ -1,27 +1,49 @@
-.image {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 80%;
-  overflow: scroll;
+.container {
+  color: var(--color-text);
+  font-family: var(--font-family);
+  margin: 0.5rem;
 }
 
-.overview {
-  position: absolute;
-  top: 80%;
+.header {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+}
+
+.header img {
+  width: 100%;
+}
+
+.heart {
+  width: auto;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2/3;
+  padding-left: 0.5rem;
+}
+
+.info {
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family);
-  padding: 1rem;
+  text-align: justify;
 }
 
-.overview p {
+.info p {
   padding-top: 1rem;
   font-size: 1rem;
 }
 
+.rating {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+
 .rating img {
-  padding-right: 0.4rem;
   width: 2rem;
 }
 

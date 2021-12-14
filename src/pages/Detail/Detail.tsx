@@ -20,17 +20,7 @@ function Detail() {
 
   return (
     <div>
-      <div>
-        {series && (
-          <DetailCard
-            poster_path={series.poster_path}
-            overview={series.overview}
-            vote_average={series.vote_average}
-            name={series.name}
-            id={series.id}
-          />
-        )}
-      </div>
+      <div>{series && <DetailCard {...series} />}</div>
     </div>
   );
 }
