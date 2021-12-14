@@ -1,9 +1,9 @@
 import styles from './DetailCard.module.css';
-import Star from '../../assets/rating.svg';
 import { DetailCardProps } from '../../types';
 import useAddToWatchlist from '../../utils/useAddToWatchlist';
 import { FormEvent } from 'react';
 import AddButton from '../AddButton/AddButton';
+import tmdb from '../../assets/tmdb.png';
 
 function DetailCard({
   poster_path,
@@ -27,24 +27,33 @@ function DetailCard({
   };
 
   return (
-    <div className={styles.container}>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-        className={styles.image}
-      />
+    <main className={styles.container}>
+      <div>
+        <img
+          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          className={styles.image}
+        />
+      </div>
+
       <article className={styles.overview}>
         <h2>Story</h2>
-        <p>{overview}</p>
+        <p>
+          {overview}
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
+          illo eum, reiciendis consectetur minus accusamus optio molestias
+          magnam, a porro quas animi neque suscipit! Ipsum nam sed consequatur
+          officiis error.
+        </p>
         <p className={styles.identifier}>{id}</p>
+        <p className={styles.rating}>
+          <img src={tmdb} />
+          {vote_average}
+        </p>
+        <div className={styles.heart} onClick={handleClick}>
+          <AddButton />
+        </div>
       </article>
-      <p className={styles.rating}>
-        <img src={Star} />
-        {vote_average}
-      </p>
-      <div className={styles.heart} onClick={handleClick}>
-        <AddButton />
-      </div>
-    </div>
+    </main>
   );
 }
 

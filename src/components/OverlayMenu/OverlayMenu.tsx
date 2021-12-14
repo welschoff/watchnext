@@ -4,20 +4,21 @@ import { Link } from 'react-router-dom';
 import Star from '../../assets/star.svg';
 import Friends from '../../assets/friends.svg';
 import Myseries from '../../assets/myseries.svg';
-// import { Logout } from '../../utils/api';
+import { useNavigate } from 'react-router-dom';
 
 function OverlayMenu() {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const navigate = useNavigate();
 
   function handleClick() {
     setNavbarOpen(!navbarOpen);
   }
 
-  // async function handleSubmit(event: { preventDefault: () => void }) {
-  //   event.preventDefault();
-  //   await Logout();
-  //   localStorage.removeItem('Current user');
-  // }
+  async function logout(event: { preventDefault: () => void }) {
+    event.preventDefault();
+    localStorage.removeItem('Current user');
+    navigate('/');
+  }
 
   return (
     <nav className={styles.nav}>
@@ -48,9 +49,9 @@ function OverlayMenu() {
             <a href="">Friends</a>
           </li>
         </Link>
-        {/* <li>
-          <button onSubmit={handleSubmit}>Logout</button>
-        </li> */}
+        <li>
+          <button onClick={logout}>Logout</button>
+        </li>
       </ul>
       <div className={styles.search}>
         <Link to="/search">
