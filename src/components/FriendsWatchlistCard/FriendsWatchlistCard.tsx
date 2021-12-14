@@ -29,7 +29,7 @@ function FriendsWatchlistCard({
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tmdb.new.logo.svg/1200px-Tmdb.new.logo.svg.png"
             alt=""
           />
-          {vote_average}
+          <span className={styles.vote}>{vote_average}</span>
         </span>
         {/* <button className={styles.remove}>
           <img src={remove} alt="" />

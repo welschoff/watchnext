@@ -30,6 +30,10 @@
   width: 2rem;
 }
 
+.vote {
+  align-self: center;
+}
+
 .star {
   transform: translateY(-6%);
 }
