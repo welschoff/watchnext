@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  color: var(--color-text);
+  font-family: var(--font-family);
+  place-items: center;
+}
+
+.friendcard {
+  background-color: var(--color-secondary);
+  display: flex;
+  column-gap: 1rem;
+  width: 80%;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+
+.friendcard p {
+  font-size: 1rem;
+  align-self: center;
+}

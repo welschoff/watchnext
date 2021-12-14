@@ -13,3 +13,7 @@ export type DetailCardProps = {
   overview?: string;
   vote_average: number;
 };
+
+export type FriendsPageProps = {
+  username: string;
+};

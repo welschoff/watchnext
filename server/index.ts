@@ -5,6 +5,13 @@ import { getUserCollection } from './database';
 import dotenv from 'dotenv';
 dotenv.config();
 import fetch from 'node-fetch';
+// import jwt from 'jsonwebtoken';
+
+// const { JWT_SECRET } = process.env;
+
+// if (!JWT_SECRET) {
+//   throw new Error('No JWT_SECRET provided');
+// }
 
 const port = process.env.PORT || 3001;
 const app = express();
@@ -21,6 +28,14 @@ app.patch('/api/users/:username', async (request, response) => {
     { $addToSet: { watchlist: newSeries } }
   ),
     response.send('Updated');
+});
+
+// GET watchlist
+app.get('/api/watchlist/:username', async (request, response) => {
+  const usersCollection = getUserCollection();
+  const username = request.body;
+  const watchlist = await usersCollection.findOne({ username: username });
+  response.send(watchlist);
 });
 
 // DELETE a series from watchlist
@@ -47,7 +62,7 @@ app.get('/api/detail/:id', async (req, res) => {
 // GET Popular Series
 app.get('/api/popular', async (_req, res) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&page=`
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&page=1`
   );
   const data = await response.json();
   console.log(data);
@@ -70,10 +85,21 @@ if (!process.env.MONGODB_URI) {
 
 // GET all users
 app.get('/api/users', async (_request, response) => {
-  const usersCollection = getUserCollection();
-  const cursor = usersCollection.find();
+  const userCollection = getUserCollection();
+  const cursor = userCollection.find();
   const allUsers = await cursor.toArray();
   response.send(allUsers);
+});
+
+// GET users without logged User
+app.get('/api/friends/:username', async (request, response) => {
+  const usersCollection = getUserCollection();
+  const username = request.params.username;
+  const cursor = usersCollection.find({
+    username: { $ne: username },
+  });
+  const friends = await cursor.toArray();
+  response.send(friends);
 });
 
 app.get('/api/hello', (_request, response) => {
@@ -97,7 +123,7 @@ app.post('/api/login', async (request, response) => {
 
   const existingUser = await userCollection.findOne({ username, password });
   if (existingUser) {
-    response.setHeader('Set-Cookie', `username=${username}`);
+    response.setHeader('User', `username=${username}`);
     response.send(existingUser);
   } else {
     response
@@ -106,10 +132,45 @@ app.post('/api/login', async (request, response) => {
   }
 });
 
+// LOGOUT
+app.get('/api/logout', async (request, response) => {
+  const username = request.cookies;
+  try {
+    response
+      .clearCookie('User', '')
+      .send(`${username.username} was logged out`);
+    await request.cookies.save();
+  } catch (error) {
+    response.send(error);
+  }
+});
+
+// app.post('/api/login', (req, res) => {
+//   const { username, password } = req.body;
+//   const users = getUserCollection();
+
+//   try {
+//     const user = users.find(
+//       (user: { username: string; password: string }) =>
+//         user.username === username && user.password === password
+//     );
+//     if (!user) {
+//       res.status(401).send('User not found');
+//       return;
+//     }
+//     res.cookie('username', user).send();
+//     const token = jwt.sign(username, JWT_SECRET);
+//     res.cookie('sessiontoken', token).send();
+//     res.send('Logged in');
+//   } catch (e) {
+//     console.error(e);
+//     res.status(500).send('Something went wrong');
+//   }
+// });
+
 // const token = jwt.sign(username, JWT_SECRET)
 
 // GET logged User
-
 app.get('/api/me', async (request, response) => {
   const username = request.cookies.username;
   const usersCollection = getUserCollection();
@@ -124,6 +185,7 @@ app.get('/api/me', async (request, response) => {
   }
 });
 
+// GET specific user
 app.get('/api/users/:username', async (request, response) => {
   const username = request.params.username;
   const usersCollection = getUserCollection();
