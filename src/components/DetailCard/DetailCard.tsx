@@ -5,6 +5,9 @@ import { FormEvent, useEffect, useState } from 'react';
 import AddButton from '../AddButton/AddButton';
 import tmdb from '../../assets/tmdb.png';
 import OverlayMenu from '../OverlayMenu/OverlayMenu';
+import star from '../../assets/rating.svg';
+import back from '../../assets/back.svg';
+import { useNavigate } from 'react-router-dom';
 
 function DetailCard({
   poster_path,
@@ -15,6 +18,7 @@ function DetailCard({
   first_air_date,
 }: DetailCardProps) {
   const [releaseDate, setReleaseDate] = useState<Date | null>(null);
+  const navigate = useNavigate();
 
   const series = {
     name,
@@ -38,35 +42,35 @@ function DetailCard({
   }, []);
 
   return (
-    <>
-      <OverlayMenu />
-      <main className={styles.container}>
-        <header className={styles.header}>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-            className={styles.image}
-          />
-          <div className={styles.title}>
-            <h2>{name}</h2>
-            <span className={styles.year}>({releaseDate?.getFullYear()})</span>
-            <div>
-              <span className={styles.rating}>
-                <img src={tmdb} />
-                {vote_average}
-              </span>
-            </div>
-          </div>
+    <main className={styles.container}>
+      <img
+        onClick={() => navigate(-1)}
+        className={styles.back}
+        src={back}
+        alt=""
+      />
+      <img
+        src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+        className={styles.image}
+      />
+      <article className={styles.info}>
+        <div className={styles.title}>
+          <h2>{name}</h2>
+
           <div className={styles.heart} onClick={handleClick}>
             <AddButton />
           </div>
-        </header>
 
-        <article className={styles.info}>
-          <p>{overview}</p>
-          <p className={styles.identifier}>{id}</p>
-        </article>
-      </main>
-    </>
+          <span>({releaseDate?.getFullYear()})</span>
+        </div>
+        <p>{overview}</p>
+        <div className={styles.rating}>
+          <img src={star} />
+          <span>{vote_average}</span>
+        </div>
+        <p className={styles.identifier}>{id}</p>
+      </article>
+    </main>
   );
 }
 

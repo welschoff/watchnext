@@ -1,34 +1,46 @@
 .container {
   color: var(--color-text);
   font-family: var(--font-family);
-  margin: 0.5rem;
+  background-color: var(--color-background);
 }
 
-.header {
-  display: grid;
-  grid-template-columns: 40% 1fr;
+.back {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  z-index: 1;
+  width: 3%;
 }
 
-.header img {
+.image {
   width: 100%;
-}
-
-.heart {
-  width: auto;
+  position: fixed;
+  top: 0;
+  height: 70vh;
+  overflow: scroll;
+  object-fit: cover;
 }
 
 .title {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 15%;
+  text-align: left;
+}
+
+.heart {
   grid-column: 2/3;
-  padding-left: 0.5rem;
+  justify-self: end;
 }
 
 .info {
+  position: absolute;
+  top: 60%;
+  width: 100vw;
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family);
   text-align: justify;
+  padding: 1rem;
 }
 
 .info p {
@@ -38,9 +50,13 @@
 
 .rating {
   display: flex;
-  flex-direction: column;
   font-size: 1.5rem;
   padding-top: 1rem;
+  column-gap: 0.5rem;
+}
+
+.rating span {
+  align-self: flex-end;
 }
 
 .rating img {
