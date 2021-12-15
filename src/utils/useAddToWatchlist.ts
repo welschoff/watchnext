@@ -1,8 +1,9 @@
 export type WatchlistProps = {
   id?: number;
-  name: string | undefined;
+  name?: string | undefined;
   poster_path: string;
   vote_average: number;
+  first_air_date?: string;
 };
 
 function useAddToWatchlist(series: WatchlistProps) {

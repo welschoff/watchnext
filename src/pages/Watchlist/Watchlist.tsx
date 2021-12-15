@@ -34,13 +34,7 @@ function Watchlist() {
             to={`/watchlist/${serie.id}`}
             key={serie.name}
           >
-            <WatchlistCard
-              name={serie.name}
-              poster_path={serie.poster_path}
-              vote_average={serie.vote_average}
-              id={serie.id}
-              overview={serie.overview}
-            />
+            <WatchlistCard {...serie} />
           </Link>
         ))}
       </div>

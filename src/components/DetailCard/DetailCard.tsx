@@ -25,6 +25,7 @@ function DetailCard({
     vote_average,
     poster_path,
     id,
+    first_air_date,
   };
   console.log({ series });
   const AddToWatchlist = useAddToWatchlist(series);
