@@ -40,11 +40,14 @@ function FriendsWatchlistCard({
           <h3>{name}</h3>
           <span>({releaseDate?.getFullYear()})</span>
         </div>
-        <span>{genres}</span>
+        <span className={styles.genres}>
+          Genre:<br></br>
+          {genres[0].name}
+        </span>
         <div className={styles.rating}>
           <img className={styles.star} src={Star} />
           <span>{vote_average}</span>
-          <span>{id}</span>
+          <span className={styles.identifier}>{id}</span>
         </div>
       </section>
     </div>

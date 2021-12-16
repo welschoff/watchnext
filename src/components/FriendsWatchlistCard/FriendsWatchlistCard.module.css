@@ -41,3 +41,7 @@
 .identifier {
   display: none;
 }
+
+.genres {
+  color: rgb(150 150 150);
+}

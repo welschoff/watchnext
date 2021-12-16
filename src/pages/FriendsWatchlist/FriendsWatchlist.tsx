@@ -27,15 +27,7 @@ function FriendsWatchlist() {
       {watchlist &&
         watchlist.map((watchlist) => (
           <Link to={`${watchlist.id}`} key={watchlist.id}>
-            <FriendsWatchlistCard
-              key={watchlist.id}
-              name={watchlist.name}
-              poster_path={watchlist.poster_path}
-              vote_average={watchlist.vote_average}
-              id={watchlist.id}
-              first_air_date={watchlist.first_air_date}
-              genres={watchlist.genres}
-            />
+            <FriendsWatchlistCard {...watchlist} />
           </Link>
         ))}
     </>
