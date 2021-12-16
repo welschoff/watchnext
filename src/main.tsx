@@ -21,8 +21,8 @@ render(
       <Route path="/watchlist" element={<Watchlist />} />
       <Route path="/watchlist/:id" element={<Detail />} />
       <Route path="/friends" element={<FriendsPage />} />
-      <Route path="/friends" element={<FriendsPage />} />
       <Route path="/friends/watchlist" element={<FriendsWatchlist />} />
+      <Route path="/friends/watchlist/:id" element={<Detail />} />
     </Routes>
   </BrowserRouter>,
   rootElement

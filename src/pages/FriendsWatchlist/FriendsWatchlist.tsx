@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import FriendsWatchlistCard, {
   FriendsWatchlistCardProps,
 } from '../../components/FriendsWatchlistCard/FriendsWatchlistCard';
@@ -25,15 +26,17 @@ function FriendsWatchlist() {
       <OverlayMenu />
       {watchlist &&
         watchlist.map((watchlist) => (
-          <FriendsWatchlistCard
-            key={watchlist.id}
-            name={watchlist.name}
-            poster_path={watchlist.poster_path}
-            vote_average={watchlist.vote_average}
-            id={watchlist.id}
-            first_air_date={watchlist.first_air_date}
-            genres={watchlist.genres}
-          />
+          <Link to={`${watchlist.id}`} key={watchlist.id}>
+            <FriendsWatchlistCard
+              key={watchlist.id}
+              name={watchlist.name}
+              poster_path={watchlist.poster_path}
+              vote_average={watchlist.vote_average}
+              id={watchlist.id}
+              first_air_date={watchlist.first_air_date}
+              genres={watchlist.genres}
+            />
+          </Link>
         ))}
     </>
   );

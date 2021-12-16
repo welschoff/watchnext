@@ -5,6 +5,7 @@ import Star from '../../assets/star.svg';
 import Friends from '../../assets/friends.svg';
 import Myseries from '../../assets/myseries.svg';
 import { useNavigate } from 'react-router-dom';
+import Logout from '../../assets/logout.svg';
 
 function OverlayMenu() {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -34,23 +35,24 @@ function OverlayMenu() {
         <Link to="/popular">
           <li>
             <img src={Star} alt="" />
-            <a href="">Popular</a>
+            <span>Popular</span>
           </li>
         </Link>
         <Link to="/watchlist">
           <li>
             <img src={Myseries} alt="" />
-            <a href="">Watchlist</a>
+            <span>Watchlist</span>
           </li>
         </Link>
         <Link to="/friends">
           <li>
             <img src={Friends} alt="" />
-            <a href="">Friends</a>
+            <span>Friends</span>
           </li>
         </Link>
-        <li>
-          <button onClick={logout}>Logout</button>
+        <li onClick={logout}>
+          <img src={Logout} alt="" />
+          <span>Logout</span>
         </li>
       </ul>
       <div className={styles.search}>

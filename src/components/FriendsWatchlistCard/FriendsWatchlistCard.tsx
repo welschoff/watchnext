@@ -44,6 +44,7 @@ function FriendsWatchlistCard({
         <div className={styles.rating}>
           <img className={styles.star} src={Star} />
           <span>{vote_average}</span>
+          <span>{id}</span>
         </div>
       </section>
     </div>
