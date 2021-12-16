@@ -2,32 +2,40 @@
   display: grid;
   background-color: var(--color-background);
   color: var(--color-text);
-  grid-template-columns: 30% 1fr;
+  grid-template-columns: 35% 1fr;
   font-family: var(--font-family);
   border-top: 1px solid rgb(184 184 184);
 }
 
 .container img {
-  height: 20vh;
+  height: 28vh;
   width: 100%;
 }
 
 .rating {
   display: flex;
   gap: 0.5rem;
+}
+
+.rating img {
+  width: 1.8rem;
+  height: auto;
+}
+
+.rating span {
   font-size: 1.5rem;
+  align-self: flex-end;
 }
 
 .star {
-  transform: translateY(10%);
+  transform: translateY(-6%);
 }
 
 .info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   padding-left: 1rem;
-  align-items: flex-start;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
 }
 
 p {

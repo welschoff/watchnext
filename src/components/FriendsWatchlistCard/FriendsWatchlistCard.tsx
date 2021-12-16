@@ -1,12 +1,15 @@
 import styles from './FriendsWatchlistCard.module.css';
-import remove from '../../assets/remove.svg';
 import Star from '../../assets/rating.svg';
+import { useEffect, useState } from 'react';
+import { GenreProps } from '../../utils/useAddToWatchlist';
 
 export type FriendsWatchlistCardProps = {
   name: string;
   poster_path: string;
   vote_average: number;
   id: number;
+  first_air_date: string;
+  genres: GenreProps[];
 };
 
 function FriendsWatchlistCard({
@@ -14,7 +17,17 @@ function FriendsWatchlistCard({
   poster_path,
   id,
   vote_average,
+  first_air_date,
+  genres,
 }: FriendsWatchlistCardProps) {
+  const [releaseDate, setReleaseDate] = useState<Date | null>(null);
+
+  useEffect(() => {
+    if (first_air_date) {
+      const newDate = new Date(first_air_date);
+      setReleaseDate(newDate);
+    }
+  }, []);
   return (
     <div className={styles.container}>
       <img
@@ -22,18 +35,20 @@ function FriendsWatchlistCard({
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
       />
       <section className={styles.info}>
-        <span className={styles.identifier}>{id}</span>
-        <h3>{name}</h3>
-        <span className={styles.rating}>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tmdb.new.logo.svg/1200px-Tmdb.new.logo.svg.png"
-            alt=""
-          />
-          <span className={styles.vote}>{vote_average}</span>
+        <div className={styles.title}>
+          <span className={styles.identifier}>{id}</span>
+          <h3>{name}</h3>
+          <span>({releaseDate?.getFullYear()})</span>
+        </div>
+        <span className={styles.genres}>
+          Genre:<br></br>
+          {genres[0].name}
         </span>
-        {/* <button className={styles.remove}>
-          <img src={remove} alt="" />
-        </button> */}
+        <div className={styles.rating}>
+          <img className={styles.star} src={Star} />
+          <span>{vote_average}</span>
+          <span className={styles.identifier}>{id}</span>
+        </div>
       </section>
     </div>
   );

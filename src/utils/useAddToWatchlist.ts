@@ -1,14 +1,19 @@
+export type GenreProps = {
+  name: string;
+};
+
 export type WatchlistProps = {
   id?: number;
-  name: string | undefined;
+  name?: string | undefined;
   poster_path: string;
   vote_average: number;
+  first_air_date?: string;
+  genres: GenreProps[];
+  saved?: boolean;
 };
 
 function useAddToWatchlist(series: WatchlistProps) {
   const username = localStorage.getItem('Current user');
-  console.log(username);
-  console.log({ series });
 
   const AddToWatchlist = async function () {
     await fetch(`/api/users/${username}`, {

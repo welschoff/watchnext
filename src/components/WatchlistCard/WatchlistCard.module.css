@@ -8,31 +8,48 @@
 
 .image {
   width: 100%;
-  height: 25vh;
+  height: 28vh;
 }
 
 .info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding-left: 1rem;
-  align-items: flex-start;
+  display: grid;
+  grid-template-rows: 1fr 1fr 15%;
+  padding: 1rem;
   border-bottom: 1px solid rgb(184 184 184);
+}
+
+.title {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 80% 1fr;
+}
+
+.title h3 {
+  align-self: end;
+}
+
+.button {
+  justify-self: end;
+  align-self: end;
+}
+
+.genres {
+  color: rgb(150 150 150);
 }
 
 .rating {
   display: flex;
+  grid-row: 3/4;
   gap: 0.5rem;
   font-size: 1rem;
 }
 
-.star {
-  transform: translateY(-6%);
+.rating span {
+  align-self: center;
 }
 
-.remove {
-  background: none;
-  width: auto;
+.star {
+  transform: translateY(-6%);
 }
 
 .identifier {

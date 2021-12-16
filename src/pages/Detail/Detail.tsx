@@ -1,8 +1,6 @@
-import styles from './Detail.module.css';
 import DetailCard from '../../components/DetailCard/DetailCard';
-import { DetailCardProps } from '../../types';
+import { DetailCardProps } from '../../components/DetailCard/DetailCard';
 import { useEffect, useState } from 'react';
-import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import { useParams } from 'react-router-dom';
 
 function Detail() {
@@ -22,18 +20,7 @@ function Detail() {
 
   return (
     <div>
-      <OverlayMenu />
-      <div className={styles.detail}>
-        {series && (
-          <DetailCard
-            poster_path={series.poster_path}
-            overview={series.overview}
-            vote_average={series.vote_average}
-            name={series.name}
-            id={series.id}
-          />
-        )}
-      </div>
+      <div>{series && <DetailCard {...series} />}</div>
     </div>
   );
 }

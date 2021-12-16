@@ -145,29 +145,6 @@ app.get('/api/logout', async (request, response) => {
   }
 });
 
-// app.post('/api/login', (req, res) => {
-//   const { username, password } = req.body;
-//   const users = getUserCollection();
-
-//   try {
-//     const user = users.find(
-//       (user: { username: string; password: string }) =>
-//         user.username === username && user.password === password
-//     );
-//     if (!user) {
-//       res.status(401).send('User not found');
-//       return;
-//     }
-//     res.cookie('username', user).send();
-//     const token = jwt.sign(username, JWT_SECRET);
-//     res.cookie('sessiontoken', token).send();
-//     res.send('Logged in');
-//   } catch (e) {
-//     console.error(e);
-//     res.status(500).send('Something went wrong');
-//   }
-// });
-
 // const token = jwt.sign(username, JWT_SECRET)
 
 // GET logged User
