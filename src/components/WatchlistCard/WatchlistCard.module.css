@@ -33,6 +33,10 @@
   align-self: end;
 }
 
+.genres {
+  color: rgb(150 150 150);
+}
+
 .rating {
   display: flex;
   grid-row: 3/4;

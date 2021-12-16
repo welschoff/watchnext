@@ -31,6 +31,8 @@ function FriendsWatchlist() {
             poster_path={watchlist.poster_path}
             vote_average={watchlist.vote_average}
             id={watchlist.id}
+            first_air_date={watchlist.first_air_date}
+            genres={watchlist.genres}
           />
         ))}
     </>

@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import WatchlistCard from '../../components/WatchlistCard/WatchlistCard';
-import { DetailCardProps } from '../../types';
+import { WatchlistProps } from '../../utils/useAddToWatchlist';
 
 function Watchlist() {
-  const [series, setSeries] = useState<DetailCardProps[]>([]);
+  const [series, setSeries] = useState<WatchlistProps[]>([]);
 
   const username = localStorage.getItem('Current user');
   console.log({ username });

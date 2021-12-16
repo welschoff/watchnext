@@ -11,6 +11,7 @@ function WatchlistCard({
   name,
   id,
   first_air_date,
+  genres,
 }: WatchlistProps) {
   const [releaseDate, setReleaseDate] = useState<Date | null>(null);
 
@@ -51,6 +52,10 @@ function WatchlistCard({
           </div>
           <span>({releaseDate?.getFullYear()})</span>
         </div>
+        <span className={styles.genres}>
+          Genre:<br></br>
+          {genres[0].name}
+        </span>
         <div className={styles.rating}>
           <img className={styles.star} src={Star} />
           <span>{vote_average}</span>

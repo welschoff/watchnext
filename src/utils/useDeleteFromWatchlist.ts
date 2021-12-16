@@ -1,7 +1,5 @@
 function useDeleteFromWatchlist(series: { poster_path: string }) {
   const username = localStorage.getItem('Current user');
-  console.log(username);
-  console.log({ series });
 
   const DeleteFromWatchlist = async function () {
     await fetch(`/api/users/${username}`, {

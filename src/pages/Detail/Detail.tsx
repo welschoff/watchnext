@@ -1,5 +1,5 @@
 import DetailCard from '../../components/DetailCard/DetailCard';
-import { DetailCardProps } from '../../types';
+import { DetailCardProps } from '../../components/DetailCard/DetailCard';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 

@@ -9,5 +9,12 @@ export default {
 };
 
 export const Default = () => (
-  <FriendsWatchlistCard name="" poster_path="" vote_average={7} id={1} />
+  <FriendsWatchlistCard
+    name=""
+    poster_path=""
+    vote_average={7}
+    id={1}
+    first_air_date=""
+    genres={[]}
+  />
 );
