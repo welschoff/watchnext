@@ -2,6 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import { connectDatabase } from './database';
 import { getUserCollection } from './database';
+import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
 import fetch from 'node-fetch';
@@ -175,4 +176,8 @@ app.get('/api/users/:username', async (request, response) => {
   } else {
     response.status(404).send('User not found');
   }
+});
+
+app.get('*', (_request, response) => {
+  response.sendFile(path.join(__dirname, '../dist/index.html'));
 });
