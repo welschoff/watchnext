@@ -57,7 +57,13 @@
 
 @media screen and (max-width: 1000px) {
   .nav_links {
-    width: 60%;
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .nav_links {
+    width: 45%;
   }
 }
 
@@ -70,7 +76,7 @@
     position: absolute;
     left: 0;
     height: 40vh;
-    top: 7vh;
+    top: 8vh;
     background-color: var(--color-secondary);
     display: flex;
     padding-left: 1rem;
