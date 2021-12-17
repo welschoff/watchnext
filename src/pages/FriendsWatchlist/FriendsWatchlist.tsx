@@ -4,6 +4,7 @@ import FriendsWatchlistCard, {
   FriendsWatchlistCardProps,
 } from '../../components/FriendsWatchlistCard/FriendsWatchlistCard';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
+import styles from './FriendsWatchlist.module.css';
 
 function FriendsWatchlist() {
   const [watchlist, setWatchlist] = useState<FriendsWatchlistCardProps[]>([]);
@@ -24,12 +25,14 @@ function FriendsWatchlist() {
   return (
     <>
       <OverlayMenu />
-      {watchlist &&
-        watchlist.map((watchlist) => (
-          <Link to={`${watchlist.id}`} key={watchlist.id}>
-            <FriendsWatchlistCard {...watchlist} />
-          </Link>
-        ))}
+      <div className={styles.container}>
+        {watchlist &&
+          watchlist.map((watchlist) => (
+            <Link to={`${watchlist.id}`} key={watchlist.id}>
+              <FriendsWatchlistCard {...watchlist} />
+            </Link>
+          ))}
+      </div>
     </>
   );
 }

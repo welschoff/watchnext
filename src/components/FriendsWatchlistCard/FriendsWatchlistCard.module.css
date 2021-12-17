@@ -45,3 +45,21 @@
 .genres {
   color: rgb(150 150 150);
 }
+
+@media screen and (min-width: 500px) {
+  .image {
+    height: 35vh;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .image {
+    height: 30vh;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .image {
+    height: 40vh;
+  }
+}
