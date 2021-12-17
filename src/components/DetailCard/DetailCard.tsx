@@ -74,45 +74,50 @@ function DetailCard({
   }, []);
 
   return (
-    <main className={styles.container}>
-      <div>
-        <img
-          onClick={() => navigate(-1)}
-          className={styles.back}
-          src={back}
-          alt=""
-        />
-        <img
-          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-          className={styles.image}
-        />
-      </div>
-      <div>
-        <article className={styles.info}>
-          <div className={styles.title}>
-            <div>
-              <h2>
-                {name}&nbsp;({releaseDate?.getFullYear()})
-              </h2>
-              <span></span>
+    <>
+      <header className={styles.menu}>
+        <OverlayMenu />
+      </header>
+      <main className={styles.container}>
+        <div>
+          <img
+            onClick={() => navigate(-1)}
+            className={styles.back}
+            src={back}
+            alt=""
+          />
+          <img
+            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            className={styles.image}
+          />
+        </div>
+        <div>
+          <article className={styles.info}>
+            <div className={styles.title}>
+              <div>
+                <h2>
+                  {name}&nbsp;({releaseDate?.getFullYear()})
+                </h2>
+                <span></span>
+              </div>
+              <div className={styles.heart} onClick={added ? remove : add}>
+                <AddButton />
+              </div>
             </div>
-            <div className={styles.heart} onClick={added ? remove : add}>
-              <AddButton />
+            <span className={styles.genres}>
+              Genre:<br></br>
+              {genres[0].name}
+            </span>
+            <p>{overview}</p>
+            <div className={styles.rating}>
+              <img src={star} />
+              <span>{vote_average}</span>
             </div>
-          </div>
-          <span className={styles.genres}>
-            Genre:<br></br>
-            {genres[0].name}
-          </span>
-          <p>{overview}</p>
-          <div className={styles.rating}>
-            <img src={star} />
-            <span>{vote_average}</span>
-          </div>
-          <p className={styles.identifier}>{id}</p>
-        </article>
-      </div>
-    </main>
+            <p className={styles.identifier}>{id}</p>
+          </article>
+        </div>
+      </main>{' '}
+    </>
   );
 }
 

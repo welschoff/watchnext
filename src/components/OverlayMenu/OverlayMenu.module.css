@@ -80,8 +80,9 @@
 }
 
 @media screen and (min-width: 600px) {
-  .nav_links {
+  .nav_links span {
     width: 45%;
+    opacity: 1;
   }
 }
 
