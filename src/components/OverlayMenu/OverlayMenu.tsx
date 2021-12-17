@@ -6,10 +6,17 @@ import Friends from '../../assets/friends.svg';
 import Myseries from '../../assets/myseries.svg';
 import { useNavigate } from 'react-router-dom';
 import Logout from '../../assets/logout.svg';
+import { useSpring, animated } from 'react-spring';
 
 function OverlayMenu() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navigate = useNavigate();
+
+  const props = useSpring({
+    opacity: navbarOpen ? 1 : 0,
+    delay: 400,
+    trail: 500,
+  });
 
   function handleClick() {
     setNavbarOpen(!navbarOpen);
@@ -33,27 +40,28 @@ function OverlayMenu() {
         className={`${styles.nav_links} ${navbarOpen ? styles.nav_open : ''} `}
       >
         <Link to="/popular">
-          <li>
+          <animated.li style={props}>
             <img src={Star} alt="" />
-            <span>Popular</span>
-          </li>
+            <a>Popular</a>
+          </animated.li>
         </Link>
+
         <Link to="/watchlist">
-          <li>
+          <animated.li style={props}>
             <img src={Myseries} alt="" />
             <span>Watchlist</span>
-          </li>
+          </animated.li>
         </Link>
         <Link to="/friends">
-          <li>
+          <animated.li style={props}>
             <img src={Friends} alt="" />
             <span>Friends</span>
-          </li>
+          </animated.li>
         </Link>
-        <li onClick={logout}>
+        <animated.li onClick={logout} style={props}>
           <img src={Logout} alt="" />
           <span>Logout</span>
-        </li>
+        </animated.li>
       </ul>
       <div className={styles.search}>
         <Link to="/search">
