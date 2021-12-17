@@ -86,7 +86,7 @@
 }
 
 .nav_open {
-  transform: translateX(-1%);
+  transform: translateX(0%);
 }
 
 .lineOne {
@@ -101,7 +101,7 @@
   transform: rotate(+45deg) translate(-6px, -6px);
 }
 
-@keyframes navLinksFade {
+/* @keyframes navLinksFade {
   from {
     opacity: 0;
     transform: translateX(-50px);
@@ -111,4 +111,4 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
+} */

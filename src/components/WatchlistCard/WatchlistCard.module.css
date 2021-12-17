@@ -71,5 +71,6 @@
 @media screen and (min-width: 1000px) {
   .image {
     height: 40vh;
+    object-fit: cover;
   }
 }
