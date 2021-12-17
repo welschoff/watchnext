@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import WatchlistCard from '../../components/WatchlistCard/WatchlistCard';
 import { WatchlistProps } from '../../utils/useAddToWatchlist';
+import styles from './Watchlist.module.css';
 
 function Watchlist() {
   const [series, setSeries] = useState<WatchlistProps[]>([]);
@@ -27,7 +28,7 @@ function Watchlist() {
   return (
     <div>
       <OverlayMenu />
-      <div>
+      <div className={styles.container}>
         {series?.map((serie) => (
           <Link
             style={{ textDecoration: 'none' }}

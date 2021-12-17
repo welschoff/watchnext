@@ -55,18 +55,6 @@
   transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 1000px) {
-  .nav_links {
-    width: 40%;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .nav_links {
-    width: 45%;
-  }
-}
-
 @media screen and (max-width: 500px) {
   body {
     overflow-x: hidden;
@@ -88,6 +76,12 @@
 
   .burger {
     display: block;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .nav_links {
+    width: 45%;
   }
 }
 
