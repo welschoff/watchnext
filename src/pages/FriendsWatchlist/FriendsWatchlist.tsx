@@ -5,7 +5,6 @@ import FriendsWatchlistCard, {
 } from '../../components/FriendsWatchlistCard/FriendsWatchlistCard';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import styles from './FriendsWatchlist.module.css';
-import { OverlayMenuProps } from '../../components/OverlayMenu/OverlayMenu';
 
 function FriendsWatchlist() {
   const [watchlist, setWatchlist] = useState<FriendsWatchlistCardProps[]>([]);
