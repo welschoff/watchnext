@@ -5,6 +5,7 @@ import GetPopular, {
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Popular.module.css';
+import { OverlayMenuProps } from '../../components/OverlayMenu/OverlayMenu';
 
 function Popular() {
   const [results, setResults] = useState<GetPopularProps[] | null>([]);
@@ -22,7 +23,7 @@ function Popular() {
 
   return (
     <section>
-      <OverlayMenu />
+      <OverlayMenu title="Popular" />
       <div className={styles.container}>
         {results?.map((result) => (
           <Link

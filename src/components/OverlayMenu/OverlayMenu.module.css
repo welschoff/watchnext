@@ -1,6 +1,7 @@
 .nav {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 8vh;
   background-color: var(--color-secondary);
   font-family: var(--font-family);
@@ -8,6 +9,13 @@
   top: 0;
   width: 100%;
   z-index: 1;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.title {
+  color: var(--color-text);
+  transform: translateX(-5%);
 }
 
 .nav_links {
@@ -33,18 +41,6 @@
 
 .nav_links li:hover {
   transform: scale(1.1);
-}
-
-.burger {
-  display: none;
-  cursor: pointer;
-  left: 5%;
-  position: absolute;
-}
-
-.search {
-  position: absolute;
-  right: 5%;
 }
 
 .burger div {

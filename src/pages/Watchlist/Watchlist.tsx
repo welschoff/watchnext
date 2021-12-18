@@ -4,6 +4,7 @@ import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import WatchlistCard from '../../components/WatchlistCard/WatchlistCard';
 import { WatchlistProps } from '../../utils/useAddToWatchlist';
 import styles from './Watchlist.module.css';
+import { OverlayMenuProps } from '../../components/OverlayMenu/OverlayMenu';
 
 function Watchlist() {
   const [series, setSeries] = useState<WatchlistProps[]>([]);
@@ -27,7 +28,7 @@ function Watchlist() {
 
   return (
     <div>
-      <OverlayMenu />
+      <OverlayMenu title="Watchlist" />
       <div className={styles.container}>
         {series?.map((serie) => (
           <Link
