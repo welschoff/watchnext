@@ -6,6 +6,7 @@ import star from '../../assets/rating.svg';
 import back from '../../assets/back.svg';
 import { useNavigate } from 'react-router-dom';
 import useDeleteFromWatchlist from '../../utils/useDeleteFromWatchlist';
+import OverlayMenu from '../OverlayMenu/OverlayMenu';
 
 export type GenreProps = {
   name: string;
@@ -73,41 +74,50 @@ function DetailCard({
   }, []);
 
   return (
-    <main className={styles.container}>
-      <img
-        onClick={() => navigate(-1)}
-        className={styles.back}
-        src={back}
-        alt=""
-      />
-      <img
-        src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-        className={styles.image}
-      />
-      <article className={styles.info}>
-        <div className={styles.title}>
-          <div>
-            <h2>
-              {name}&nbsp;({releaseDate?.getFullYear()})
-            </h2>
-            <span></span>
-          </div>
-          <div className={styles.heart} onClick={added ? remove : add}>
-            <AddButton />
-          </div>
+    <>
+      <header className={styles.menu}>
+        <OverlayMenu />
+      </header>
+      <main className={styles.container}>
+        <div>
+          <img
+            onClick={() => navigate(-1)}
+            className={styles.back}
+            src={back}
+            alt=""
+          />
+          <img
+            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            className={styles.image}
+          />
         </div>
-        <span className={styles.genres}>
-          Genre:<br></br>
-          {genres[0].name}
-        </span>
-        <p>{overview}</p>
-        <div className={styles.rating}>
-          <img src={star} />
-          <span>{vote_average}</span>
+        <div>
+          <article className={styles.info}>
+            <div className={styles.title}>
+              <div>
+                <h2>
+                  {name}&nbsp;({releaseDate?.getFullYear()})
+                </h2>
+                <span></span>
+              </div>
+              <div className={styles.heart} onClick={added ? remove : add}>
+                <AddButton />
+              </div>
+            </div>
+            <span className={styles.genres}>
+              Genre:<br></br>
+              {genres[0].name}
+            </span>
+            <p>{overview}</p>
+            <div className={styles.rating}>
+              <img src={star} />
+              <span>{vote_average}</span>
+            </div>
+            <p className={styles.identifier}>{id}</p>
+          </article>
         </div>
-        <p className={styles.identifier}>{id}</p>
-      </article>
-    </main>
+      </main>{' '}
+    </>
   );
 }
 

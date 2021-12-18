@@ -55,3 +55,24 @@
 .identifier {
   display: none;
 }
+
+@media screen and (min-width: 500px) {
+  .image {
+    height: 35vh;
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .image {
+    height: 30vh;
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .image {
+    height: 40vh;
+    object-fit: cover;
+  }
+}

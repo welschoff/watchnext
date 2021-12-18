@@ -16,6 +16,7 @@ function SearchResult({
   return (
     <div className={styles.container}>
       <img
+        className={styles.poster}
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
         alt={`Cover of ${name}`}
       />

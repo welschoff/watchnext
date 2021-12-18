@@ -55,12 +55,6 @@
   transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 1000px) {
-  .nav_links {
-    width: 60%;
-  }
-}
-
 @media screen and (max-width: 500px) {
   body {
     overflow-x: hidden;
@@ -70,7 +64,7 @@
     position: absolute;
     left: 0;
     height: 40vh;
-    top: 7vh;
+    top: 8vh;
     background-color: var(--color-secondary);
     display: flex;
     padding-left: 1rem;
@@ -85,8 +79,15 @@
   }
 }
 
+@media screen and (min-width: 600px) {
+  .nav_links span {
+    width: 45%;
+    opacity: 1;
+  }
+}
+
 .nav_open {
-  transform: translateX(-1%);
+  transform: translateX(0%);
 }
 
 .lineOne {
@@ -101,7 +102,7 @@
   transform: rotate(+45deg) translate(-6px, -6px);
 }
 
-@keyframes navLinksFade {
+/* @keyframes navLinksFade {
   from {
     opacity: 0;
     transform: translateX(-50px);
@@ -111,4 +112,4 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
+} */
