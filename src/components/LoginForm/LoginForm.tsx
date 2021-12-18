@@ -8,14 +8,20 @@ function LoginForm() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const user: Partial<User> = { username, password };
-    await verifyLogin(user);
-    localStorage.setItem('Current user', username);
-    navigate('/popular');
+    verifyLogin(user)
+      .then(() => {
+        localStorage.setItem('Current user', username);
+        navigate('/popular');
+      })
+      .catch((error) => {
+        setError(error);
+      });
   }
 
   function validateForm() {
@@ -44,6 +50,7 @@ function LoginForm() {
         className={styles.login}
         disabled={!validateForm()}
       />
+      <span className={styles.error}>{error}</span>
     </form>
   );
 }
