@@ -17,17 +17,3 @@ export async function verifyLogin(user: Partial<User>): Promise<User> {
   console.log({ localStorage });
   return result;
 }
-
-// export async function Logout() {
-//   const response = await fetch('/api/logout', {
-
-//   if (!response.ok) {
-//     const errorMessage = await response.text();
-//     throw errorMessage;
-//   }
-//   const logout: User = await response.json();
-//   console.log({ username });
-//   console.log({ localStorage });
-
-//   return logout;
-// }

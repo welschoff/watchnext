@@ -1,5 +1,6 @@
 .form {
   display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   row-gap: 0.5rem;
   width: 50%;
   color: var(--color-primary);
@@ -13,4 +14,13 @@
   border-radius: 1rem;
   border: none;
   padding: 0.5rem;
+}
+
+.error {
+  position: absolute;
+  width: 45%;
+  bottom: 25%;
+  font-family: var(--font-family);
+  color: var(--color-primary);
+  font-size: 0.8rem;
 }
