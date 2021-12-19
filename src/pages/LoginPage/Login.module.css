@@ -1,11 +1,16 @@
 .container {
   display: grid;
+  grid-template-rows: 40% 60%;
   place-items: center;
-  background-color: var(--color-background);
   height: 100vh;
+  row-gap: 2rem;
 }
 
-.wrapper {
-  display: grid;
-  row-gap: 1rem;
+.image {
+  width: 80%;
+  align-self: end;
+}
+
+.form {
+  align-self: start;
 }
