@@ -18,8 +18,7 @@ function OverlayMenu({ title }: OverlayMenuProps) {
 
   const props = useSpring({
     opacity: navbarOpen ? 1 : 0,
-    delay: 400,
-    trail: 500,
+    delay: 350,
   });
 
   function handleClick() {

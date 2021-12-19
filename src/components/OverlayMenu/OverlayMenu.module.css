@@ -86,8 +86,7 @@
 
 @media screen and (min-width: 1000px) {
   .nav_links {
-    width: 55%;
-    opacity: 1;
+    width: 50%;
   }
 
   .title {
