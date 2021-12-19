@@ -22,7 +22,7 @@ function Popular() {
 
   return (
     <section>
-      <OverlayMenu />
+      <OverlayMenu title="Popular" />
       <div className={styles.container}>
         {results?.map((result) => (
           <Link

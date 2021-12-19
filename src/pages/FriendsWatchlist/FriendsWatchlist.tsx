@@ -24,7 +24,7 @@ function FriendsWatchlist() {
 
   return (
     <>
-      <OverlayMenu />
+      <OverlayMenu title={`${friend}'s Watchlist`} />
       <div className={styles.container}>
         {watchlist &&
           watchlist.map((watchlist) => (

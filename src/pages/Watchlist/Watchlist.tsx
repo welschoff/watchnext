@@ -27,7 +27,7 @@ function Watchlist() {
 
   return (
     <div>
-      <OverlayMenu />
+      <OverlayMenu title="Watchlist" />
       <div className={styles.container}>
         {series?.map((serie) => (
           <Link

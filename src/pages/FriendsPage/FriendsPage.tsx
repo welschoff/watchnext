@@ -32,7 +32,7 @@ function FriendsPage() {
 
   return (
     <>
-      <OverlayMenu />
+      <OverlayMenu title="Friends" />
       <Link to={'/friends/watchlist'}>
         <div className={styles.container}>
           {friends?.map((friend) => (

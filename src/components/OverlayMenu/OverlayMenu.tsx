@@ -8,14 +8,17 @@ import { useNavigate } from 'react-router-dom';
 import Logout from '../../assets/logout.svg';
 import { useSpring, animated } from 'react-spring';
 
-function OverlayMenu() {
+export type OverlayMenuProps = {
+  title?: string;
+};
+
+function OverlayMenu({ title }: OverlayMenuProps) {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navigate = useNavigate();
 
   const props = useSpring({
     opacity: navbarOpen ? 1 : 0,
-    delay: 400,
-    trail: 500,
+    delay: 350,
   });
 
   function handleClick() {
@@ -35,14 +38,16 @@ function OverlayMenu() {
         <div className={navbarOpen ? styles.lineTwo : ''}></div>
         <div className={navbarOpen ? styles.lineThree : ''}></div>
       </div>
-
+      <div className={styles.title}>
+        <span>{title}</span>
+      </div>
       <ul
         className={`${styles.nav_links} ${navbarOpen ? styles.nav_open : ''} `}
       >
         <Link to="/popular">
           <animated.li style={props}>
             <img src={Star} alt="" />
-            <a>Popular</a>
+            <span>Popular</span>
           </animated.li>
         </Link>
 
