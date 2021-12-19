@@ -9,6 +9,11 @@
 .image {
   width: 100%;
   height: 28vh;
+  object-fit: cover;
+}
+
+.date {
+  color: var(--color-text-secondary);
 }
 
 .info {
@@ -20,7 +25,6 @@
 
 .title {
   display: grid;
-  grid-template-rows: 1fr 1fr;
   grid-template-columns: 80% 1fr;
 }
 
@@ -30,17 +34,19 @@
 
 .button {
   justify-self: end;
-  align-self: end;
+  align-self: start;
 }
 
-.genres {
+.genre {
+  display: flex;
+  flex-direction: column;
   color: rgb(150 150 150);
 }
 
 .rating {
   display: flex;
   grid-row: 3/4;
-  gap: 0.5rem;
+  gap: 0.3rem;
   font-size: 1rem;
 }
 
@@ -49,6 +55,7 @@
 }
 
 .star {
+  width: 1.2rem;
   transform: translateY(-6%);
 }
 

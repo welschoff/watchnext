@@ -42,6 +42,7 @@
 .info p {
   padding-top: 1rem;
   font-size: 1rem;
+  line-height: 120%;
 }
 
 .genres {
@@ -55,12 +56,9 @@
   column-gap: 0.5rem;
 }
 
-.rating span {
-  align-self: flex-end;
-}
-
 .rating img {
-  width: 2rem;
+  width: 1.7rem;
+  transform: translateY(-10%);
 }
 
 .identifier {

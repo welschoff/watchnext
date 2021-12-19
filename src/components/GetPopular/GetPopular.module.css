@@ -28,9 +28,8 @@
   align-items: flex-start;
   padding: 0.5rem;
   justify-content: space-between;
-  position: relative;
-  height: 10vh;
   font-size: 0.8rem;
+  row-gap: 0.5rem;
 }
 
 button {

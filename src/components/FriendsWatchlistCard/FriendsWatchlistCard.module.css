@@ -14,9 +14,19 @@
 
 .info {
   display: grid;
-  grid-template-rows: 1fr 1fr 15%;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 0.5rem;
+  height: 28vh;
   padding: 1rem;
   border-bottom: 1px solid rgb(184 184 184);
+}
+
+.date {
+  color: var(--color-text-secondary);
+}
+
+.title {
+  display: flex;
 }
 
 .button {
@@ -37,6 +47,7 @@
 
 .star {
   transform: translateY(-6%);
+  width: 1.3rem;
 }
 
 .identifier {
@@ -44,7 +55,7 @@
 }
 
 .genres {
-  color: rgb(150 150 150);
+  color: var(--color-text-secondary);
 }
 
 @media screen and (min-width: 500px) {

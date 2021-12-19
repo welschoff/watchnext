@@ -52,12 +52,20 @@
   right: 5%;
 }
 
+.popular {
+  transform: translateY(-12%);
+}
+
 .burger div {
   width: 25px;
   height: 3px;
   background-color: var(--color-primary);
   margin: 5px;
   transition: all 0.3s ease;
+}
+
+.watchlist {
+  transform: translateY(-10%);
 }
 
 @media screen and (max-width: 1000px) {
