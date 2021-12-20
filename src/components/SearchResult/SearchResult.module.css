@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+.date {
+  color: var(--color-text-secondary);
+}
+
 .rating {
   display: flex;
   gap: 0.5rem;

@@ -18,7 +18,9 @@ function Search(): JSX.Element {
   };
 
   useEffect(() => {
-    getSeries();
+    setTimeout(() => {
+      getSeries();
+    }, 300);
   }, [query]);
 
   return (
@@ -43,6 +45,7 @@ function Search(): JSX.Element {
                 poster_path={result.poster_path}
                 name={result.name}
                 vote_average={result.vote_average}
+                first_air_date={result.first_air_date}
               />
             </Link>
           ))}

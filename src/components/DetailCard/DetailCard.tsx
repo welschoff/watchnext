@@ -96,7 +96,10 @@ function DetailCard({
             <div className={styles.title}>
               <div>
                 <h2>
-                  {name}&nbsp;({releaseDate?.getFullYear()})
+                  {name}{' '}
+                  <span className={styles.date}>
+                    ({releaseDate?.getFullYear()})
+                  </span>
                 </h2>
                 <span></span>
               </div>
