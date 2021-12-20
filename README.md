@@ -2,7 +2,7 @@
 
 An app to network with friends, share Watchlists and find the right series for you.
 
-### Here yu can view and test the app:
+### Here you can view and test the app:
 
 - [Heroku](https://app-watchnext.herokuapp.com/)
 - Login with:
