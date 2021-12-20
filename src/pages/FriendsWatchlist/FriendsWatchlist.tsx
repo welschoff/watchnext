@@ -11,14 +11,17 @@ function FriendsWatchlist() {
 
   const friend = sessionStorage.getItem('activeUser');
 
-  const getWatchlist = async () => {
-    const response = await fetch(`/api/users/${friend}`);
-    const data = await response.json();
-    setWatchlist(data.watchlist);
-    console.log(data.watchlist);
-  };
-
   useEffect(() => {
+    const getWatchlist = async () => {
+      const response = await fetch(`/api/users/${friend}`);
+      const data = await response.json();
+      const sortArray = await data.watchlist.sort(
+        (a: { vote_average: number }, b: { vote_average: number }) => {
+          return b.vote_average - a.vote_average;
+        }
+      );
+      setWatchlist(sortArray);
+    };
     getWatchlist();
   }, []);
 

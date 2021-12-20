@@ -30,15 +30,17 @@ function FriendsWatchlistCard({
   }, []);
   return (
     <div className={styles.container}>
+      <span className={styles.identifier}>{id}</span>
       <img
         className={styles.image}
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
       />
       <section className={styles.info}>
         <div className={styles.title}>
-          <span className={styles.identifier}>{id}</span>
-          <h3>{name}</h3>
-          <span>({releaseDate?.getFullYear()})</span>
+          <h3>
+            {name}{' '}
+            <span className={styles.date}>({releaseDate?.getFullYear()})</span>
+          </h3>
         </div>
         <span className={styles.genres}>
           Genre:<br></br>
@@ -47,7 +49,6 @@ function FriendsWatchlistCard({
         <div className={styles.rating}>
           <img className={styles.star} src={Star} />
           <span>{vote_average}</span>
-          <span className={styles.identifier}>{id}</span>
         </div>
       </section>
     </div>

@@ -1,74 +1,64 @@
-# Vite Boilerplate
+# watchnext
 
-> Quickly bootstrap a new project with Vite Boilerplate.
+An app to network with friends, share Watchlists and find the right series for you.
 
-This boilerplate contains all the tools you need to build a modern web app with TypeScript, React, Vite, Storybook and Express.  
-You can use it to quickly bootstrap your project.
+### Here yu can view and test the app:
 
-ESLint, stylelint, prettier, husky and lintstaged are configured to give you a solid development experience.
+- [Heroku](https://app-watchnext.herokuapp.com/)
+- Login with:
+  ```
+  username: Testuser
+  password: 123456
+  ```
 
-## Installing / Developing
+## Installing / Getting started
 
-First, [create a repository from this template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-repository-from-a-template).
+1. Install dependencies: `npm install`
 
-Now you are ready to go:
+2. In the project directory, you can then run:
 
-```shell
-npm install
-```
+**npm run build**: Builds the app for production to the dist folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
 
-This will install the dependencies required to run the boilerplate.
+`npm start`: Runs the server in production mode and serve production bundle from npm run build
 
-```shell
-npm run dev
-```
+The default ports are:
 
-Boom! These scripts run your server, client and storybook in development mode.
-
-The default PORTS are:
-
-- `3001` for the server
-- `3000` for the client
-- `6006` for the storybook
+- `3000` for the server
+- `3001` for the client
+- `6006` for storybook
 
 If you don't like to call all scripts at once, you can also run:
 
-```shell
-npm run server:dev
-npm run client:dev
-npm run storybook
 ```
-
-You can configure the server port by setting the `PORT` environment variable. Creating a `.env` file is supported. You can copy `.env.example` to `.env`.
-
-| KEY  | VALUE                                                         |
-| ---- | ------------------------------------------------------------- |
-| PORT | (Optional) Port for the server environment (defaults to 3001) |
-
-## Building
-
-To build the project, run:
-
-```shell
-npm run build
+npm run dev-server
+npm run dev-client
+npm run dev-storybook
 ```
-
-This will build the client, server and storybook.
-
-```shell
-npm start
-```
-
-In production, you have a single server serving everything.
-
-`/api/*` is the API endpoint.  
-`/storybook` is the Storybook.  
-`/*` is the client.
 
 ## Tests
 
 A test runner is not installed (right now). But TypeScript, linter and prettier are checked on commit and push thanks to husky and lintstaged.
 
-## Licensing
+## Developing
 
-MIT
+<img width="3%" alt="logo" src="https://user-images.githubusercontent.com/81613530/124288016-fb9a6b80-db50-11eb-894b-46220c096ee8.png"
+ /> [React](https://reactjs.org/)
+
+## Tech Stack
+
+- [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Express.js](http://expressjs.com/)
+- [Node.js](https://nodejs.org)
+- [Storybook](https://storybook.js.org/)
+- [Heroku](https://www.heroku.com)
+- [dotenv](https://github.com/motdotla/dotenv)
+- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [Husky](https://github.com/typicode/husky)
+- [Lint-Staged](https://github.com/okonet/lint-staged)

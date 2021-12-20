@@ -46,15 +46,21 @@ function WatchlistCard({
       <section className={styles.info}>
         <div className={styles.title}>
           <span className={styles.identifier}>{id}</span>
-          <h3>{name}</h3>
+          <div>
+            <h3>
+              {name}{' '}
+              <span className={styles.date}>
+                ({releaseDate?.getFullYear()})
+              </span>
+            </h3>
+          </div>
           <div className={styles.button} onClick={handleClick}>
             <RemoveButton />
           </div>
-          <span>({releaseDate?.getFullYear()})</span>
         </div>
-        <span className={styles.genres}>
-          Genre:<br></br>
-          {genres[0].name}
+        <span className={styles.genre}>
+          <span>Genre:</span>
+          <span>{genres[0].name}</span>
         </span>
         <div className={styles.rating}>
           <img className={styles.star} src={Star} />

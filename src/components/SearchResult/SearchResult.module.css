@@ -13,25 +13,6 @@
   object-fit: cover;
 }
 
-.rating {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.rating img {
-  width: 1.8rem;
-  height: auto;
-}
-
-.rating span {
-  font-size: 1.5rem;
-  align-self: flex-end;
-}
-
-.star {
-  transform: translateY(-6%);
-}
-
 .info {
   padding-left: 1rem;
   display: grid;
@@ -39,8 +20,16 @@
   align-items: center;
 }
 
-p {
-  font-size: 1.5rem;
+.rating {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.star {
+  width: 1.5rem;
+  height: auto;
+  transform: translateY(-6%);
 }
 
 @media screen and (min-width: 700px) {

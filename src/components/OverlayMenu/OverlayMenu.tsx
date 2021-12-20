@@ -3,7 +3,7 @@ import styles from './OverlayMenu.module.css';
 import { Link } from 'react-router-dom';
 import Star from '../../assets/star.svg';
 import Friends from '../../assets/friends.svg';
-import Myseries from '../../assets/myseries.svg';
+import Watchlist from '../../assets/myseries.svg';
 import { useNavigate } from 'react-router-dom';
 import Logout from '../../assets/logout.svg';
 import { useSpring, animated } from 'react-spring';
@@ -46,14 +46,14 @@ function OverlayMenu({ title }: OverlayMenuProps) {
       >
         <Link to="/popular">
           <animated.li style={props}>
-            <img src={Star} alt="" />
+            <img className={styles.popular} src={Star} alt="" />
             <span>Popular</span>
           </animated.li>
         </Link>
 
         <Link to="/watchlist">
           <animated.li style={props}>
-            <img src={Myseries} alt="" />
+            <img className={styles.watchlist} src={Watchlist} alt="" />
             <span>Watchlist</span>
           </animated.li>
         </Link>
