@@ -1,16 +1,7 @@
 import styles from './FriendsWatchlistCard.module.css';
 import Star from '../../assets/rating.svg';
 import { useEffect, useState } from 'react';
-import { GenreProps } from '../../utils/useAddToWatchlist';
-
-export type FriendsWatchlistCardProps = {
-  name: string;
-  poster_path: string;
-  vote_average: number;
-  id: number;
-  first_air_date: string;
-  genres: GenreProps[];
-};
+import { SeriesProps } from '../../types';
 
 function FriendsWatchlistCard({
   name,
@@ -19,7 +10,7 @@ function FriendsWatchlistCard({
   vote_average,
   first_air_date,
   genres,
-}: FriendsWatchlistCardProps) {
+}: SeriesProps) {
   const [releaseDate, setReleaseDate] = useState<Date | null>(null);
 
   useEffect(() => {
