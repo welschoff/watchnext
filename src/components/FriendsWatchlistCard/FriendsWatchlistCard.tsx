@@ -35,7 +35,7 @@ function FriendsWatchlistCard({
         </div>
         <span className={styles.genres}>
           Genre:<br></br>
-          {genres[0].name}
+          {genres ? genres[0].name : null}
         </span>
         <div className={styles.rating}>
           <img className={styles.star} src={Star} />

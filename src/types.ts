@@ -21,6 +21,6 @@ export type SeriesProps = {
   overview?: string;
   vote_average?: number;
   first_air_date?: string;
-  genres: GenreProps[];
+  genres?: GenreProps[];
   saved?: boolean;
 };

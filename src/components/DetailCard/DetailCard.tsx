@@ -90,7 +90,7 @@ function DetailCard({
             </div>
             <span className={styles.genres}>
               Genre:<br></br>
-              {genres[0].name}
+              {genres ? genres[0].name : null}
             </span>
             <p>{overview}</p>
             <div className={styles.rating}>
