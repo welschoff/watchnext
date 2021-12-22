@@ -117,15 +117,3 @@
 .lineThree {
   transform: rotate(+45deg) translate(-6px, -6px);
 }
-
-/* @keyframes navLinksFade {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-} */

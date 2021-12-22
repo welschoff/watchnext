@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 function FriendsPage() {
   const [friends, setFriends] = useState<FriendsPageProps[]>([]);
-  //   const [watchlist, setWatchlist] = useState<FriendsWatchlistCardProps[]>([]);
 
   const username = localStorage.getItem('Current user');
 
@@ -21,15 +20,6 @@ function FriendsPage() {
     getFriends();
   }, []);
 
-  //   const friend = sessionStorage.getItem('activeUser');
-
-  //   const getWatchlist = async () => {
-  //     const response = await fetch(`/api/users/${friend}`);
-  //     const data = await response.json();
-  //     setWatchlist(data.watchlist);
-  //     console.log(data.watchlist);
-  //   };
-
   return (
     <>
       <OverlayMenu title="Friends" />
@@ -41,16 +31,6 @@ function FriendsPage() {
           ))}{' '}
         </div>
       </Link>
-      {/* {watchlist &&
-          watchlist.map((watchlist) => (
-            <FriendsWatchlistCard
-              key={watchlist.id}
-              name={watchlist.name}
-              poster_path={watchlist.poster_path}
-              vote_average={watchlist.vote_average}
-              id={watchlist.id}
-            />
-          ))} */}
     </>
   );
 }

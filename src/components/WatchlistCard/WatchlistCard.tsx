@@ -60,7 +60,7 @@ function WatchlistCard({
         </div>
         <span className={styles.genre}>
           <span>Genre:</span>
-          <span>{genres[0].name}</span>
+          <span>{genres ? genres[0].name : null}</span>
         </span>
         <div className={styles.rating}>
           <img className={styles.star} src={Star} />

@@ -31,6 +31,7 @@ function DetailCard({
     genres,
     saved: true,
   };
+
   const AddToWatchlist = useAddToWatchlist(series);
 
   const add = async function (event: FormEvent) {
