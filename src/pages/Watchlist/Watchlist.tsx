@@ -9,7 +9,6 @@ function Watchlist() {
   const [series, setSeries] = useState<SeriesProps[]>([]);
 
   const username = localStorage.getItem('Current user');
-  console.log({ username });
 
   useEffect(() => {
     const getDetails = async () => {
