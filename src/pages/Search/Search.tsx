@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
-import SearchResult, {
-  SearchResultProps,
-} from '../../components/SearchResult/SearchResult';
+import SearchResult from '../../components/SearchResult/SearchResult';
 import styles from './Search.module.css';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import { Link } from 'react-router-dom';
+import { SeriesProps } from '../../types';
 
 function Search(): JSX.Element {
-  const [results, setResults] = useState<SearchResultProps[] | null>([]);
+  const [results, setResults] = useState<SeriesProps[] | null>([]);
   const [query, setQuery] = useState<string | ''>('');
 
   const getSeries = async () => {

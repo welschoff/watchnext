@@ -5,16 +5,10 @@ export type GetPopularProps = {
   poster_path: object;
   name: string;
   vote_average: number;
-  // overview: string;
   id?: number;
 };
 
-function GetPopular({
-  poster_path,
-  name,
-  vote_average,
-}: // overview,
-GetPopularProps) {
+function GetPopular({ poster_path, name, vote_average }: GetPopularProps) {
   return (
     <div className={styles.container}>
       <img

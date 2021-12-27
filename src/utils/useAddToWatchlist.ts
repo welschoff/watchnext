@@ -1,18 +1,6 @@
-export type GenreProps = {
-  name: string;
-};
+import { SeriesProps } from '../types';
 
-export type WatchlistProps = {
-  id?: number;
-  name?: string | undefined;
-  poster_path: string;
-  vote_average: number;
-  first_air_date?: string;
-  genres: GenreProps[];
-  saved?: boolean;
-};
-
-function useAddToWatchlist(series: WatchlistProps) {
+function useAddToWatchlist(series: SeriesProps) {
   const username = localStorage.getItem('Current user');
 
   const AddToWatchlist = async function () {

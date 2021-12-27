@@ -34,7 +34,7 @@ app.patch('/api/users/:username', async (request, response) => {
 // GET watchlist
 app.get('/api/watchlist/:username', async (request, response) => {
   const usersCollection = getUserCollection();
-  const username = request.body;
+  const username = request.cookies;
   const watchlist = await usersCollection.findOne({ username: username });
   response.send(watchlist);
 });

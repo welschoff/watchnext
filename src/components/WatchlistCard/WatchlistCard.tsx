@@ -1,6 +1,6 @@
 import styles from './WatchlistCard.module.css';
 import Star from '../../assets/rating.svg';
-import { WatchlistProps } from '../../utils/useAddToWatchlist';
+import { SeriesProps } from '../../types';
 import useDeleteFromWatchlist from '../../utils/useDeleteFromWatchlist';
 import { FormEvent, useEffect, useState } from 'react';
 import RemoveButton from '../RemoveButton/RemoveButton';
@@ -12,7 +12,7 @@ function WatchlistCard({
   id,
   first_air_date,
   genres,
-}: WatchlistProps) {
+}: SeriesProps) {
   const [releaseDate, setReleaseDate] = useState<Date | null>(null);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ function WatchlistCard({
         </div>
         <span className={styles.genre}>
           <span>Genre:</span>
-          <span>{genres[0].name}</span>
+          <span>{genres ? genres[0].name : null}</span>
         </span>
         <div className={styles.rating}>
           <img className={styles.star} src={Star} />

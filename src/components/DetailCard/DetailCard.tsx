@@ -7,21 +7,7 @@ import back from '../../assets/back.svg';
 import { useNavigate } from 'react-router-dom';
 import useDeleteFromWatchlist from '../../utils/useDeleteFromWatchlist';
 import OverlayMenu from '../OverlayMenu/OverlayMenu';
-
-export type GenreProps = {
-  name: string;
-};
-
-export type DetailCardProps = {
-  id?: number;
-  name?: string;
-  poster_path: string;
-  overview?: string;
-  vote_average: number;
-  first_air_date?: string;
-  genres: GenreProps[];
-  saved: boolean;
-};
+import { SeriesProps } from '../../types';
 
 function DetailCard({
   poster_path,
@@ -31,8 +17,7 @@ function DetailCard({
   id,
   first_air_date,
   genres,
-  saved,
-}: DetailCardProps) {
+}: SeriesProps) {
   const [releaseDate, setReleaseDate] = useState<Date | null>(null);
   const [added, setAdded] = useState<true | false>(false);
   const navigate = useNavigate();
@@ -46,6 +31,7 @@ function DetailCard({
     genres,
     saved: true,
   };
+
   const AddToWatchlist = useAddToWatchlist(series);
 
   const add = async function (event: FormEvent) {
@@ -53,10 +39,6 @@ function DetailCard({
     await AddToWatchlist();
     setAdded(true);
   };
-
-  if (saved) {
-    setAdded(true);
-  }
 
   const DeleteFromWatchlist = useDeleteFromWatchlist(series);
 
@@ -109,7 +91,7 @@ function DetailCard({
             </div>
             <span className={styles.genres}>
               Genre:<br></br>
-              {genres[0].name}
+              {genres ? genres[0].name : null}
             </span>
             <p>{overview}</p>
             <div className={styles.rating}>

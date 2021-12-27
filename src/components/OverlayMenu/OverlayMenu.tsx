@@ -25,10 +25,14 @@ function OverlayMenu({ title }: OverlayMenuProps) {
     setNavbarOpen(!navbarOpen);
   }
 
-  async function logout(event: { preventDefault: () => void }) {
-    event.preventDefault();
-    localStorage.removeItem('Current user');
-    navigate('/');
+  async function logout() {
+    try {
+      await fetch('/api/logout');
+      localStorage.removeItem('Current user');
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Login.module.css';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Logo from '../../assets/watchnext.png';

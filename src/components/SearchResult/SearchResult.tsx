@@ -1,21 +1,14 @@
 import styles from './SearchResult.module.css';
 import Star from '../../assets/rating.svg';
 import { useEffect, useState } from 'react';
-
-export type SearchResultProps = {
-  poster_path: object;
-  name: string;
-  vote_average: number;
-  id?: number;
-  first_air_date: string;
-};
+import { SeriesProps } from '../../types';
 
 function SearchResult({
   name,
   poster_path,
   vote_average,
   first_air_date,
-}: SearchResultProps) {
+}: SeriesProps) {
   const [releaseDate, setReleaseDate] = useState<Date | null>(null);
 
   useEffect(() => {

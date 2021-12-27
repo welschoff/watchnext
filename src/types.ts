@@ -9,3 +9,18 @@ export type User = {
 export type FriendsPageProps = {
   username: string;
 };
+
+export type GenreProps = {
+  name: string;
+};
+
+export type SeriesProps = {
+  id?: number;
+  name?: string;
+  poster_path: string;
+  overview?: string;
+  vote_average?: number;
+  first_air_date?: string;
+  genres?: GenreProps[];
+  saved?: boolean;
+};

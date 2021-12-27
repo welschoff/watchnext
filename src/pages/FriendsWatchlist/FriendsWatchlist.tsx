@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import FriendsWatchlistCard, {
-  FriendsWatchlistCardProps,
-} from '../../components/FriendsWatchlistCard/FriendsWatchlistCard';
+import FriendsWatchlistCard from '../../components/FriendsWatchlistCard/FriendsWatchlistCard';
 import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import styles from './FriendsWatchlist.module.css';
+import { SeriesProps } from '../../types';
 
 function FriendsWatchlist() {
-  const [watchlist, setWatchlist] = useState<FriendsWatchlistCardProps[]>([]);
+  const [watchlist, setWatchlist] = useState<SeriesProps[]>([]);
 
   const friend = sessionStorage.getItem('activeUser');
 
