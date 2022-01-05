@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './OverlayMenu.module.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Star from '../../assets/star.svg';
 import Friends from '../../assets/friends.svg';
 import Watchlist from '../../assets/myseries.svg';
@@ -48,32 +48,59 @@ function OverlayMenu({ title }: OverlayMenuProps) {
       <ul
         className={`${styles.nav_links} ${navbarOpen ? styles.nav_open : ''} `}
       >
-        <Link to="/popular">
+        <NavLink
+          to="/popular"
+          style={({ isActive }) =>
+            isActive
+              ? {
+                  color: '#e1e1e1',
+                }
+              : {}
+          }
+        >
           <animated.li style={props}>
             <img className={styles.popular} src={Star} alt="" />
             <span>Popular</span>
           </animated.li>
-        </Link>
+        </NavLink>
 
-        <Link to="/watchlist">
+        <NavLink
+          to="/watchlist"
+          style={({ isActive }) =>
+            isActive
+              ? {
+                  color: '#e1e1e1',
+                }
+              : {}
+          }
+        >
           <animated.li style={props}>
             <img className={styles.watchlist} src={Watchlist} alt="" />
             <span>Watchlist</span>
           </animated.li>
-        </Link>
-        <Link to="/friends">
+        </NavLink>
+        <NavLink
+          to="/friends"
+          style={({ isActive }) =>
+            isActive
+              ? {
+                  color: '#e1e1e1',
+                }
+              : {}
+          }
+        >
           <animated.li style={props}>
             <img src={Friends} alt="" />
             <span>Friends</span>
           </animated.li>
-        </Link>
+        </NavLink>
         <animated.li onClick={logout} style={props}>
           <img src={Logout} alt="" />
           <span>Logout</span>
         </animated.li>
       </ul>
       <div className={styles.search}>
-        <Link to="/search">
+        <NavLink to="/search">
           <svg
             width="25"
             height="26"
@@ -86,7 +113,7 @@ function OverlayMenu({ title }: OverlayMenuProps) {
               fill="#FF6915"
             />
           </svg>
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );
