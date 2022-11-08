@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Detail from './pages/Detail/Detail';
 import FriendsPage from './pages/FriendsPage/FriendsPage';
 import FriendsWatchlist from './pages/FriendsWatchlist/FriendsWatchlist';

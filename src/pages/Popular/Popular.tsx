@@ -51,7 +51,6 @@ function Popular() {
                     poster_path={result.poster_path}
                     name={result.name}
                     vote_average={result.vote_average}
-                    // overview={result.overview}
                   />
                 </Link>
               );
@@ -66,7 +65,6 @@ function Popular() {
                     poster_path={result.poster_path}
                     name={result.name}
                     vote_average={result.vote_average}
-                    // overview={result.overview}
                   />
                 </Link>
               );
