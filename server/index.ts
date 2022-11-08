@@ -61,9 +61,9 @@ app.get('/api/detail/:id', async (req, res) => {
 });
 
 // GET Popular Series
-app.get('/api/popular', async (_req, res) => {
+app.get('/api/popular/:pageNumber', async (req, res) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&page=1`
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&page=${req.params.pageNumber}`
   );
   const data = await response.json();
   console.log(data);
@@ -137,9 +137,7 @@ app.post('/api/login', async (request, response) => {
 app.get('/api/logout', async (request, response) => {
   const username = request.cookies;
   try {
-    response
-      .clearCookie('User', '')
-      .send(`${username.username} was logged out`);
+    response.clearCookie('User').send(`${username.username} was logged out`);
     await request.cookies.save();
   } catch (error) {
     response.send(error);
