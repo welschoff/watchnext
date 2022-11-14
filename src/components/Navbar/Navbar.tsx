@@ -5,6 +5,7 @@ import { BiLogOut } from 'react-icons/bi';
 import styles from './Navbar.module.css';
 import { IconContext } from 'react-icons';
 import { NavLink } from 'react-router-dom';
+import { FaUserFriends } from 'react-icons/fa';
 
 function Navbar() {
   return (
@@ -43,6 +44,16 @@ function Navbar() {
           }
         >
           <FaHeart />
+        </NavLink>
+        <NavLink
+          to="/friends"
+          style={({ isActive }) =>
+            isActive
+              ? { color: 'var(--color-primary)' }
+              : { color: 'var(--color-icon)' }
+          }
+        >
+          <FaUserFriends />
         </NavLink>
         <NavLink
           to="/"
