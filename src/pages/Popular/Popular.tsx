@@ -4,6 +4,7 @@ import { Key, useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Popular.module.css';
 import useBookSearch from './useGetPopular';
+import Navbar from '../../components/Navbar/Navbar';
 
 function Popular() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -11,7 +12,7 @@ function Popular() {
   const { results, hasMore, loading, error } = useBookSearch(pageNumber);
 
   const observer = useRef<IntersectionObserver | null>(null);
-  const lastBookElementRef = useCallback(
+  const lastElementRef = useCallback(
     (node) => {
       if (loading) return;
       if (observer.current) observer.current.disconnect();
@@ -27,7 +28,6 @@ function Popular() {
 
   return (
     <section>
-      <OverlayMenu title="Popular" />
       <div className={styles.container}>
         {results.map(
           (
@@ -45,7 +45,7 @@ function Popular() {
                   style={{ textDecoration: 'none' }}
                   key={result.id}
                   to={`/popular/${result.id}`}
-                  ref={lastBookElementRef}
+                  ref={lastElementRef}
                 >
                   <GetPopular
                     poster_path={result.poster_path}
@@ -73,6 +73,7 @@ function Popular() {
         )}
       </div>
       <div>{error && 'Error'}</div>
+      <Navbar />
     </section>
   );
 }

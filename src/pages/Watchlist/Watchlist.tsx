@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
+import Navbar from '../../components/Navbar/Navbar';
 import WatchlistCard from '../../components/WatchlistCard/WatchlistCard';
 import { SeriesProps } from '../../types';
 import styles from './Watchlist.module.css';
@@ -26,7 +26,6 @@ function Watchlist() {
 
   return (
     <div>
-      <OverlayMenu title="Watchlist" />
       <div className={styles.container}>
         {series?.map((serie) => (
           <Link
@@ -38,6 +37,7 @@ function Watchlist() {
           </Link>
         ))}
       </div>
+      <Navbar />
     </div>
   );
 }

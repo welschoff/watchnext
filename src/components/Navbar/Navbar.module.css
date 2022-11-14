@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--color-secondary);
+  height: 3rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

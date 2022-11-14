@@ -1,21 +1,17 @@
 .search {
   padding: 0.5rem 0;
   display: flex;
-  flex-flow: row-reverse;
+  justify-content: center;
 }
 
 .search input {
-  border-radius: 1rem 0 0 1rem;
   border: none;
   font-size: 1rem;
   padding-left: 0.5rem;
+  border-radius: 0.3rem;
+  width: 90%;
 }
 
 body {
   background-color: var(--color-background);
-}
-
-.result {
-  position: absolute;
-  z-index: -1;
 }
