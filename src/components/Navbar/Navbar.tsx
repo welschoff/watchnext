@@ -10,18 +10,50 @@ function Navbar() {
   return (
     <div className={styles.nav}>
       <IconContext.Provider
-        value={{ color: 'var(--color-primary)', size: '20' }}
+        value={{
+          size: '20',
+        }}
       >
-        <NavLink to="/popular">
+        <NavLink
+          to="/popular"
+          style={({ isActive }) =>
+            isActive
+              ? { color: 'var(--color-primary)' }
+              : { color: 'var(--color-icon)' }
+          }
+        >
           <FaHome />
         </NavLink>
-        <NavLink to="/search">
+        <NavLink
+          to="/search"
+          style={({ isActive }) =>
+            isActive
+              ? { color: 'var(--color-primary)' }
+              : { color: 'var(--color-icon)' }
+          }
+        >
           <FaSearch />
         </NavLink>
-        <NavLink to="/watchlist">
+        <NavLink
+          to="/watchlist"
+          style={({ isActive }) =>
+            isActive
+              ? { color: 'var(--color-primary)' }
+              : { color: 'var(--color-icon)' }
+          }
+        >
           <FaHeart />
         </NavLink>
-        <BiLogOut />
+        <NavLink
+          to="/"
+          style={({ isActive }) =>
+            isActive
+              ? { color: 'var(--color-primary)' }
+              : { color: 'var(--color-icon)' }
+          }
+        >
+          <BiLogOut />
+        </NavLink>
       </IconContext.Provider>
     </div>
   );
