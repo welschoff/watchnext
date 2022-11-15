@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import Friendlist from '../../components/Friendlist/Friendlist';
-import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import styles from './FriendsPage.module.css';
 import { FriendsPageProps } from '../../types';
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar/Navbar';
 
 function FriendsPage() {
   const [friends, setFriends] = useState<FriendsPageProps[]>([]);
@@ -22,7 +22,6 @@ function FriendsPage() {
 
   return (
     <>
-      <OverlayMenu title="Friends" />
       <Link to={'/friends/watchlist'}>
         <div className={styles.container}>
           {friends?.map((friend) => (
@@ -31,6 +30,7 @@ function FriendsPage() {
           ))}{' '}
         </div>
       </Link>
+      <Navbar />
     </>
   );
 }

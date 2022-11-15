@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import SearchResult from '../../components/SearchResult/SearchResult';
 import styles from './Search.module.css';
-import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
+import Navbar from '../../components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 import { SeriesProps } from '../../types';
 
@@ -24,7 +24,6 @@ function Search(): JSX.Element {
 
   return (
     <>
-      <OverlayMenu />
       <form className={styles.search}>
         <input
           type="search"
@@ -49,6 +48,7 @@ function Search(): JSX.Element {
             </Link>
           ))}
       </div>
+      <Navbar />
     </>
   );
 }
