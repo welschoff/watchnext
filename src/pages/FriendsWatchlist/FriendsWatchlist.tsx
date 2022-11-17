@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FriendsWatchlistCard from '../../components/FriendsWatchlistCard/FriendsWatchlistCard';
-import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import styles from './FriendsWatchlist.module.css';
 import { SeriesProps } from '../../types';
+import Navbar from '../../components/Navbar/Navbar';
 
 function FriendsWatchlist() {
   const [watchlist, setWatchlist] = useState<SeriesProps[]>([]);
@@ -26,7 +26,6 @@ function FriendsWatchlist() {
 
   return (
     <>
-      <OverlayMenu title={`${friend}'s Watchlist`} />
       <div className={styles.container}>
         {watchlist &&
           watchlist.map((watchlist) => (
@@ -35,6 +34,7 @@ function FriendsWatchlist() {
             </Link>
           ))}
       </div>
+      <Navbar />
     </>
   );
 }

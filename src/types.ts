@@ -17,7 +17,7 @@ export type GenreProps = {
 export type SeriesProps = {
   id?: number;
   name?: string;
-  poster_path: string;
+  poster_path: string | object;
   overview?: string;
   vote_average?: number;
   first_air_date?: string;

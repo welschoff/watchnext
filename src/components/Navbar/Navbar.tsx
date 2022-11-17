@@ -1,7 +1,7 @@
 import { FaHome } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 import { FaHeart } from 'react-icons/fa';
-import { BiLogOut } from 'react-icons/bi';
+import { FaUser } from 'react-icons/fa';
 import styles from './Navbar.module.css';
 import { IconContext } from 'react-icons';
 import { NavLink } from 'react-router-dom';
@@ -63,7 +63,7 @@ function Navbar() {
               : { color: 'var(--color-icon)' }
           }
         >
-          <BiLogOut />
+          <FaUser />
         </NavLink>
       </IconContext.Provider>
     </div>
