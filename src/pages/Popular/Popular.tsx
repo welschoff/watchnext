@@ -1,4 +1,3 @@
-import OverlayMenu from '../../components/OverlayMenu/OverlayMenu';
 import GetPopular from '../../components/GetPopular/GetPopular';
 import { Key, useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -36,6 +35,7 @@ function Popular() {
               poster_path: object;
               name: string;
               vote_average: number;
+              overview: string;
             },
             index
           ) => {
@@ -51,6 +51,7 @@ function Popular() {
                     poster_path={result.poster_path}
                     name={result.name}
                     vote_average={result.vote_average}
+                    overview={result.overview}
                   />
                 </Link>
               );
@@ -65,6 +66,7 @@ function Popular() {
                     poster_path={result.poster_path}
                     name={result.name}
                     vote_average={result.vote_average}
+                    overview={result.overview}
                   />
                 </Link>
               );
