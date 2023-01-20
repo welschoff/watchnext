@@ -38,7 +38,8 @@ GET http://localhost:3001/api/search/:name HTTP/1.1
 
 GET http://localhost:3001/api/detail HTTP/1.1
 
-
+### GET Videos
+GET http://localhost:3001/api/videos/90462 HTTP/1.1
 
 ### POST series to Watchlist
 

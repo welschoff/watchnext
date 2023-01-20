@@ -17,10 +17,11 @@ export type GenreProps = {
 export type SeriesProps = {
   id?: number;
   name?: string;
-  poster_path: string | object;
+  poster_path?: string | undefined;
   overview?: string;
   vote_average?: number;
   first_air_date?: string;
   genres?: GenreProps[];
   saved?: boolean;
+  trailerId?: string;
 };

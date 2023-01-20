@@ -60,6 +60,15 @@ app.get('/api/detail/:id', async (req, res) => {
   res.send(data);
 });
 
+// GET Videos
+app.get('/api/videos/:id', async (req, res) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/tv/${req.params.id}/videos?api_key=79f8888252c85fbe294c7596aa7067d9&language=en-US`
+  );
+  const data = await response.json();
+  res.send(data);
+});
+
 // GET Popular Series
 app.get('/api/popular/:pageNumber', async (req, res) => {
   const response = await fetch(
