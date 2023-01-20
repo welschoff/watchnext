@@ -69,7 +69,7 @@ function DetailCard({
     <>
       <main className={styles.container}>
         <div className={styles.header}>
-          <IoChevronBack size={25} />
+          <IoChevronBack onClick={() => navigate(-1)} size={25} />
           <span>
             {name}{' '}
             {/* <span className={styles.date}>({releaseDate?.getFullYear()})</span> */}
