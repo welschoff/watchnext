@@ -1,0 +1,8 @@
+.container {
+  margin-bottom: 3rem;
+}
+
+.actors {
+  display: flex;
+  overflow: scroll;
+}

@@ -7,6 +7,10 @@ GET http://localhost:3001/api/users HTTP/1.1
 
 GET http://localhost:3001/api/watchlist/Hendrik HTTP/1.1
 
+### GET actors
+
+GET http://localhost:3001/api/actors/1396 HTTP/1.1
+
 
 ### GET users without logged User
 
@@ -36,9 +40,10 @@ GET http://localhost:3001/api/search/:name HTTP/1.1
 
 ### GET Details
 
-GET http://localhost:3001/api/detail HTTP/1.1
+GET http://localhost:3001/api/detail/550 HTTP/1.1
 
-
+### GET Videos
+GET http://localhost:3001/api/videos/90462 HTTP/1.1
 
 ### POST series to Watchlist
 

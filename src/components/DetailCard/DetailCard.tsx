@@ -2,12 +2,13 @@ import styles from './DetailCard.module.css';
 import useAddToWatchlist from '../../utils/useAddToWatchlist';
 import { FormEvent, useEffect, useState } from 'react';
 import AddButton from '../AddButton/AddButton';
-import star from '../../assets/rating.svg';
-import back from '../../assets/back.svg';
 import { useNavigate } from 'react-router-dom';
 import useDeleteFromWatchlist from '../../utils/useDeleteFromWatchlist';
-import OverlayMenu from '../OverlayMenu/OverlayMenu';
 import { SeriesProps } from '../../types';
+import Trailer from '../Trailer/Trailer';
+import { IoChevronBack } from 'react-icons/io5';
+import Navbar from '../Navbar/Navbar';
+import { FaStar } from 'react-icons/fa';
 
 function DetailCard({
   poster_path,
@@ -20,7 +21,15 @@ function DetailCard({
 }: SeriesProps) {
   const [releaseDate, setReleaseDate] = useState<Date | null>(null);
   const [added, setAdded] = useState<true | false>(false);
+  const [trailerId, setTrailerId] = useState<string>('');
   const navigate = useNavigate();
+
+  const getTrailer = async () => {
+    const response = await fetch(`/api/videos/${id}`);
+    const data = await response.json();
+    setTrailerId(data.results[0].key);
+    console.log(data);
+  };
 
   const series = {
     name,
@@ -53,54 +62,62 @@ function DetailCard({
       const newDate = new Date(first_air_date);
       setReleaseDate(newDate);
     }
+    getTrailer();
   }, []);
 
   return (
     <>
-      <header className={styles.menu}>
-        <OverlayMenu />
-      </header>
       <main className={styles.container}>
+        <div className={styles.header}>
+          <IoChevronBack onClick={() => navigate(-1)} size={25} />
+          <span>
+            {name}{' '}
+            {/* <span className={styles.date}>({releaseDate?.getFullYear()})</span> */}
+          </span>
+        </div>
         <div>
-          <img
-            onClick={() => navigate(-1)}
-            className={styles.back}
-            src={back}
-            alt=""
-          />
+          <h2>{name}</h2>
+          <span>TV Show {releaseDate?.getFullYear()}</span>
+        </div>
+        <Trailer trailerId={trailerId} />
+        <div className={styles.cover}>
           <img
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             className={styles.image}
           />
+
+          <div className={styles.genres}>
+            {genres && genres.length > 0 ? (
+              genres.map((obj, index) => (
+                <div className={styles.genre} key={index}>
+                  {obj.name}
+                </div>
+              ))
+            ) : (
+              <div></div>
+            )}
+          </div>
+          <p className={styles.overview}>{overview}</p>
+        </div>
+        <div className={styles.rating}>
+          <FaStar style={{ color: 'gold' }} />
+          <span>{vote_average?.toFixed(1)}</span>
         </div>
         <div>
           <article className={styles.info}>
             <div className={styles.title}>
               <div>
-                <h2>
-                  {name}{' '}
-                  <span className={styles.date}>
-                    ({releaseDate?.getFullYear()})
-                  </span>
-                </h2>
                 <span></span>
               </div>
               <div className={styles.heart} onClick={added ? remove : add}>
                 <AddButton />
               </div>
             </div>
-            <span className={styles.genres}>
-              Genre:<br></br>
-              {genres ? genres[0].name : null}
-            </span>
-            <p>{overview}</p>
-            <div className={styles.rating}>
-              <img src={star} />
-              <span>{vote_average}</span>
-            </div>
+
             <p className={styles.identifier}>{id}</p>
           </article>
         </div>
+        <Navbar />
       </main>{' '}
     </>
   );
