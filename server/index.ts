@@ -60,6 +60,15 @@ app.get('/api/detail/:id', async (req, res) => {
   res.send(data);
 });
 
+// GET Actors
+app.get('/api/actors/:id', async (req, res) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/tv/${req.params.id}/credits?api_key=${process.env.API_KEY}`
+  );
+  const data = await response.json();
+  res.send(data.cast);
+});
+
 // GET Videos
 app.get('/api/videos/:id', async (req, res) => {
   const response = await fetch(

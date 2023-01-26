@@ -25,3 +25,9 @@ export type SeriesProps = {
   saved?: boolean;
   trailerId?: string;
 };
+
+export type ActorProps = {
+  character: string;
+  name: string;
+  profile_path: string | null;
+};

@@ -1,0 +1,22 @@
+.actor {
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-text);
+  font-family: var(--font-family);
+}
+
+.display_none {
+  display: none;
+}
+
+.profile {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+}
+
+span {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
